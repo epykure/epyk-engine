@@ -27,10 +27,7 @@ items.options.on_select([
   button.dom.events.trigger("click")
 ])
 
-line = page.ui.charts.chartJs.line(x_axis="Date", profile=True)
-line.options.scales.x_axes().type = "time"
-line.options.elements.point.radius = 0
-line.options.scales.x_axes().distribution = 'linear'
+line = page.ui.charts.c3.line(x_axis="Date")
 
 tag = page.ui.rich.powered()
 tag.style.css.margin_bottom = 5

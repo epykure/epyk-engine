@@ -12,6 +12,7 @@ page.theme = ThemeBlue.BlueGrey()
 page.js.customFile("FR.js", r"http://pypl.github.io/PYPL")
 
 title = page.ui.title("PYPL PopularitY of Programming Language")
+#tag = page.ui.rich.powered(by=["billboard.js"])
 items = page.ui.inputs.autocomplete(placeholder="select a language and press enter", options={"select": True})
 
 cols_keys = page.ui.lists.drop(html_code="cols_agg_keys")
@@ -27,10 +28,7 @@ items.options.on_select([
   button.dom.events.trigger("click")
 ])
 
-line = page.ui.charts.chartJs.line(x_axis="Date", profile=True)
-line.options.scales.x_axes().type = "time"
-line.options.elements.point.radius = 0
-line.options.scales.x_axes().distribution = 'linear'
+line = page.ui.charts.billboard.line(x_axis="Date")
 
 tag = page.ui.rich.powered()
 tag.style.css.margin_bottom = 5
