@@ -7,7 +7,7 @@ from epyk.core.data import datamap
 page = Report()
 page.theme = ThemeBlue.BlueGrey()
 
-dt = page.ui.fields.date(value=None, htmlCode="date", label="Date")
+dt = page.ui.fields.date(value=None, html_code="date", label="Date")
 
 title_us = page.ui.title("US Covid tacker")
 bar_states = page.ui.charts.chartJs.bar(y_columns=["cases", "deaths", "fips"], x_axis="state")
