@@ -39,8 +39,8 @@ page = Report()
 page.theme = ThemeBlue.BlueGrey()
 
 
-from_dt = page.ui.fields.date(value="M-1", htmlCode="from_date", label="From")
-to_dt = page.ui.fields.today(htmlCode="to_date", label="To")
+from_dt = page.ui.fields.date(value="M-1", html_code="from_date", label="From")
+to_dt = page.ui.fields.today(html_code="to_date", label="To")
 
 button = page.ui.buttons.colored("Update")
 

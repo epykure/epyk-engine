@@ -9,7 +9,7 @@ from epyk.core.data import datamap
 page = Report()
 page.theme = ThemeBlue.BlueGrey()
 
-dt = page.ui.fields.date(value=None, htmlCode="date", label="Date")
+dt = page.ui.fields.date(value=None, html_code="date", label="Date")
 
 us = page.ui.geo.chartJs.choropleths.us()
 

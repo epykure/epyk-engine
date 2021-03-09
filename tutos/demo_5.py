@@ -18,8 +18,8 @@ for rec in tesla_df[columns].to_records():
 page = Report()
 page.theme = ThemeBlue.BlueGrey()
 
-from_dt = page.ui.fields.date(value=None, htmlCode="from_date", label="From")
-to_dt = page.ui.fields.date(value=None, htmlCode="to_date", label="To")
+from_dt = page.ui.fields.date(value=None, html_code="from_date", label="From")
+to_dt = page.ui.fields.date(value=None, html_code="to_date", label="To")
 
 button = page.ui.buttons.colored("Update")
 

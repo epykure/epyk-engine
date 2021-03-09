@@ -1,6 +1,3 @@
-"""
-
-"""
 
 from epyk_studio.core.Page import Report
 from epyk.core.css.themes import ThemeBlue
@@ -27,7 +24,8 @@ link.style.css.text_align = "center"
 link.style.css.margin_top = 10
 link.style.css.margin_bottom = 10
 
-img = page.ui.img("epyklogo_whole_big.png", "https://raw.githubusercontent.com/epykure/epyk-ui/master/epyk/static/images")
+img = page.ui.img(
+  "epyklogo_whole_big.png", "https://raw.githubusercontent.com/epykure/epyk-ui/master/epyk/static/images")
 img.style.css.height = 50
 img.style.css.width = None
 

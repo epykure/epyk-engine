@@ -12,7 +12,7 @@ page.js.customFile("FR.js", r"http://pypl.github.io/PYPL")
 title = page.ui.title("PYPL PopularitY of Programming Language")
 items = page.ui.inputs.autocomplete(placeholder="select a language and press enter", options={"select": True})
 
-cols_keys = page.ui.lists.drop(["Date"], htmlCode="cols_agg_keys")
+cols_keys = page.ui.lists.drop(["Date"], html_code="cols_agg_keys")
 cols_keys.style.css.min_height = 20
 cols_keys.items_style(style="bullets")
 cols_keys.drop()
@@ -39,7 +39,9 @@ box.style.standard()
 
 button.click([
   table.js.clearData(),
-  table.js.setDataFromArray(std.var("graphData"), header=cols_keys.dom.content, formatters={"Date": "(function(data){return data['Date'].toISOString().split('T')[0]})"}),
+  table.js.setDataFromArray(
+    std.var("graphData"), header=cols_keys.dom.content,
+    formatters={"Date": "(function(data){return data['Date'].toISOString().split('T')[0]})"}),
   table.js.redraw(True),
 ])
 
