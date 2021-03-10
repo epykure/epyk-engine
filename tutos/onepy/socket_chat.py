@@ -8,8 +8,7 @@ SERVER_SOCKET_PORT = 5000
 
 
 def get_page(page):
-  print("Run the page")
-  # Create the server configuration on the JavaScript Side
+  print("Run Epyk Web page")
   server = page.data.js.server(SERVER_SOCKET_HOST, SERVER_SOCKET_PORT).addNamespace('news', alias="name")
   socket = page.js.socketio()
   socket.connect(from_config=server.getNamespace('name'))
@@ -27,11 +26,9 @@ def get_page(page):
   row = page.ui.row([container, pie], position="top")
   row.options.responsive = False
   row.options.autoSize = False
-
   box = page.ui.div()
   box.extend([title, input, button, row])
   box.style.doc()
-
   container.subscribe(socket, 'news received', data=socket.message['content'])
   pie.subscribe(socket, 'news received', data=socket.message['pie'])
 
@@ -51,7 +48,7 @@ def get_series(count, size, negatives=0.1, missing=0.2):
 
 
 if __name__ == "__main__":
-  print("OK")
+  print("Run SocketIO server")
   import eventlet
   import socketio
 
