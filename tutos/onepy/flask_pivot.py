@@ -3,11 +3,8 @@ from epyk.core.data import events
 from epyk.core.Page import Report
 from epyk.core.data import components as cpns
 from epyk.core.css.themes import ThemeBlue
-from epyk.core.data import chartJs
 
 from pandas_datareader import data as pddr
-from functools import reduce
-import pandas as pd
 
 # Socket server url
 SERVER_SOCKET_HOST = "127.0.0.1"
