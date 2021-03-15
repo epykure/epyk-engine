@@ -1,11 +1,14 @@
 
 from epyk.core.Page import Report
 from epyk.core.css import Colors
+from epyk.core.css.themes import ThemeBlue
 
 
 # Create a basic report object
 page = Report()
 page.headers.dev()
+page.theme = ThemeBlue.BlueGrey()
+page.body.add_template(defined_style="doc")
 
 # Add HTML title
 page.ui.title("Colors", 2)
@@ -56,3 +59,8 @@ table.line("grey colors")
 table.from_array([page.ui.images.color(c, color="black") for c in other_theme.greys], 4)
 table.line("charts colors")
 table.from_array([page.ui.images.color(c, color="black") for c in other_theme.charts], 4)
+
+
+if __name__ == "__main__":
+    # If the script is run directly for Python.
+    page.outs.html_file()

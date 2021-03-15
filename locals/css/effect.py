@@ -5,7 +5,12 @@ from epyk.core.Page import Report
 # Create a basic report object
 page = Report()
 page.headers.dev()
+page.body.add_template(defined_style="doc")
 
+page.ui.titles.title("CSS Transitions and effects")
+page.ui.texts.highlights(
+  "Animate your page using transitions from the dom property",
+  icon="fas fa-search-plus", type="info", options={"close": False})
 # Dom events are available on each components and they will be more detailed on the Javascript section
 # CSS effects are mainly driven by Javascript function
 div = page.ui.div("This is a text")
@@ -15,6 +20,10 @@ div.click([
   # Change the color to red for 1 second
   div.dom.transition("color", "red", duration=1, reverse=True)
 ])
+
+page.ui.texts.highlights(
+  "Add predefined effects from the property *.style.effects*",
+  icon="fas fa-search-plus", type="info", options={"close": False})
 
 # CSS animate can also be done using transition effects
 # There is a catalog of predefined effects
@@ -47,3 +56,13 @@ div_b.style.add_classes.custom(CssHoverColor)
 div = page.ui.div("This is a text with an interactive style")
 div.style.css.padding = 10
 div.style.hover({"color": 'green'})
+
+INFOS = '''
+Animation and effects
+'''
+
+
+if __name__ == "__main__":
+    # If the script is run directly for Python.
+    page.outs.html_file()
+
