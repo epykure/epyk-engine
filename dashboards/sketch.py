@@ -11,8 +11,8 @@ from epyk.core.data import loops
 page = Report()
 page.headers.dev()
 
-server = page.data.js.server(config.SERVER_DATA_HOST, config.SERVER_DATA_PORT).endPoints(["file", "data"]).addNamespace('news', alias="name")
-
+server = page.data.js.server(
+  config.SERVER_DATA_HOST, config.SERVER_DATA_PORT).endPoints(["file", "data"]).addNamespace('news', alias="name")
 
 div = page.ui.div()
 

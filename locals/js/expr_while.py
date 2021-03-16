@@ -2,27 +2,49 @@
 from epyk.core.Page import Report
 from epyk.core.js import expr
 from epyk.core.js import std
+from epyk.core.css.themes import ThemeBlue
 
 
 # Create a basic report object
 page = Report()
 page.headers.dev()
+page.theme = ThemeBlue.BlueGrey()
+page.body.add_template(defined_style="doc")
 
-input = page.ui.input()
 
+page.ui.title("JavaScript While statement")
 
-while_lopp = expr.whileOf(input, options={"var": 'y'})
+h = page.ui.texts.highlights(
+  "This illustrates how to add while loops from Python",
+  icon="fab fa-js", type="info", options={"close": False})
+h.style.css.background = "#f0db4f"
+
+input = page.ui.input(placeholder="Put a number and press enter")
+
+# Console component
+page.ui.titles.subtitle("Console logs")
+c = page.ui.rich.console(
+  "* This is a log section for all the events in the different buttons *", options={"timestamp": True})
+
+while_loop = expr.whileOf(input, options={"var": 'y'})
 input.enter([
-  std.console.log("Common for While"),
+  c.dom.write("Common for While"),
   std.var('ter', input.dom.content.number),
   expr.while_(std.var('ter') < 10).fncs([
-    std.console.log(std.var("ter"))
+    c.dom.write(std.var("ter"))
   ]).next(std.var('ter') + 1),
-
-  std.console.log("While loop on object items"),
-  while_lopp.fncs([
-    std.console.log(while_lopp.value)
+  c.dom.write("While loop on object items"),
+  while_loop.fncs([
+    c.dom.write(while_loop.value)
   ]),
 
 ])
 
+page.ui.layouts.hr()
+page.ui.titles.subtitle("Report powered by")
+page.ui.rich.powered()
+
+
+if __name__ == "__main__":
+    # If the script is run directly for Python.
+    page.outs.html_file()
