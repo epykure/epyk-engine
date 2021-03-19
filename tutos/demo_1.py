@@ -48,3 +48,10 @@ button.click([
 ])
 
 page.body.onReady([items.js.source(std.var("graphData")[0])])
+
+
+if __name__ == "__main__":
+    # If the script is run directly for Python.
+    page.outs.html_file()
+
+

@@ -10,7 +10,7 @@ from flask import Flask
 app = Flask(__name__)
 
 
-def get_page_flask():
+def create_page():
   page = Report()
   page.headers.dev()
 
@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
   @app.route('/')
   def ui():
-    return get_page_flask().outs.html()
+    return create_page().outs.html()
 
   @app.route('/test_event', methods=['POST'])
   def test_event():
