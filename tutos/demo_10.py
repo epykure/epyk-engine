@@ -44,7 +44,7 @@ ref = page.ui.texts.references.website(author="rsharankumar", name="Learn Data S
 # Create a container for the HTML page
 box = page.ui.div()
 box.extend([title, powered, row, row2, ref])
-box.style.doc()
+box.style.configs.doc(background="white")
 
 # Group data for the processing on the JavaScript side
 grp = page.data.js.record(std.var("covidData", global_scope=True)).filterGroup("aggData")

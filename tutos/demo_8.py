@@ -63,4 +63,4 @@ title_state = page.ui.titles.head(state)
 # Create a container for the HTML page
 box = page.studio.containers.box()
 box.extend([title_state, row_data, title_current, row, title_week, row_week])
-box.style.standard()
+box.style.configs.doc(background=page.theme.white)

@@ -50,7 +50,7 @@ line_cumul_county.options.tooltips.callbacks.labelNumber()
 # Create a container for the HTML page
 box = page.studio.containers.box()
 box.extend([dt, page.ui.row([us, [title_state, line_cumul]]), title_county, row, title, line_cumul_county])
-box.style.standard()
+box.style.configs.doc(background=page.theme.greys[0])
 
 # Group data for the processing on the JavaScript side
 grp = page.data.js.record(std.var("covidData", global_scope=True)).filterGroup("aggData")
