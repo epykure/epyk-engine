@@ -7,7 +7,9 @@ from epyk.core.data import events
 # Create a basic report object
 page = Report()
 page.headers.dev()
-page.body.add_template(defined_style="doc")
+template = page.body.add_template(defined_style="doc")
+template.style.css.background = "white"
+
 page.theme = ThemeBlue.BlueGrey()
 
 categories = ["Shopping", "Meeting"]
@@ -21,7 +23,7 @@ check_list.style.css.padding = 5
 item = page.ui.inputs.left(placeholder="Add your item", width=(None, ''))
 category = page.ui.select(components.select.from_list(categories))
 button = page.ui.buttons.colored("Add")
-page.css.customText('''.test:hover {color: green !IMPORTANT; font-size:20px  !IMPORTANT}''')
+page.css.customText('''.test:hover {color: green !IMPORTANT}''')
 
 container = page.ui.div()
 for c in [item, category, button]:
