@@ -47,9 +47,15 @@ text_2m.click([from_dt.input.build(text_2m.dom.content), button.dom.events.trigg
 text_1m.click([from_dt.input.build(text_1m.dom.content), button.dom.events.trigger("click")])
 text_all.click([from_dt.input.build(records[0]["Date"]), chart.build(grp)])
 
+tag = page.ui.rich.powered()
+tag.style.css.margin_bottom = 5
+tag.style.css.margin_top = 5
+
 box = page.studio.containers.box()
-box.extend([title, from_dt, to_dt, button, page.ui.layouts.hr(margins=5), buttons, chart])
-box.style.standard()
+box.extend([
+  title, from_dt, to_dt, button, page.ui.layouts.hr(margins=5), buttons, chart,
+  page.ui.layouts.hr().css({"margin-top": "20px"}), tag])
+box.style.configs.doc(background="white")
 
 button.click([
   text.dom.classList.select(False),
