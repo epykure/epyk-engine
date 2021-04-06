@@ -37,7 +37,11 @@ bar = page.ui.charts.chartJs.bar(df4.to_dict(orient="records"), y_columns=["a", 
 bar.options.scales.xAxes.stacked = True
 bar.options.scales.yAxes.stacked = True
 
-page.ui.charts.chartJs.hbar(df4.to_dict(orient="records"), y_columns=["a", "b", "c", "d"], x_axis="index")
+hbar = page.ui.charts.chartJs.hbar(df4.to_dict(orient="records"), y_columns=["a", "b", "c", "d"], x_axis="index")
+
+row = page.ui.row([bar, hbar])
+row.options.responsive = False
+row.options.autoSize = False
 
 df5 = pd.DataFrame(np.random.rand(10, 4), columns=["a", "b", "c", "d"])
 df5 = df5.reset_index()
@@ -46,7 +50,7 @@ area.colors(["red", "orange", "yellow", "blue"])
 area.options.scales.xAxes.stacked = True
 area.options.scales.yAxes.stacked = True
 
-scatter = page.ui.charts.chartJs.scatter(df5.to_dict(orient="records"), y_columns=["b"], x_axis="a")
+scatter = page.ui.charts.chartJs.scatter(df5.to_dict(orient="records"), y_columns=["b", "c", "d"], x_axis="a")
 scatter.options.scales.xAxes.scaleLabel.label("XAxis")
 scatter.options.scales.yAxes.scaleLabel.label("YAxis")
 
