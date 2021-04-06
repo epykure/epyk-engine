@@ -9,6 +9,7 @@ df = ts.reset_index()
 df["index"] = df["index"].dt.strftime('%Y-%m-%d')
 
 page = pk.Page()
+page.ui.title("Pandas tutorial #2")
 template = page.body.add_template(defined_style="doc")
 template.style.css.background = page.theme.greys[0]
 
