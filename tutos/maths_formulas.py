@@ -7,7 +7,10 @@ from epyk.core.data import events
 # Create a basic report object
 page = Report()
 page.headers.dev()
-page.body.add_template(defined_style="doc")
+
+template = page.body.add_template(defined_style="doc")
+template.style.css.background = page.theme.greys[0]
+
 page.theme = ThemeBlue.BlueGrey()
 
 page.ui.titles.head("Mathematical expressions")
