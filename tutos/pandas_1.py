@@ -27,7 +27,12 @@ df = pd.DataFrame({"Animal": ["Mouse", "Rabbit", "Dog", "Tiger", "Elefant", "Wal
                    "Weight [g]": [19, 3000, 40000, 200000, 6000000, 50000000]})
 
 line = page.ui.charts.apex.line(df.to_dict(orient="records"), y_columns=["Weight [g]"], x_axis="Animal")
+line.options.xaxis.title.text = "Animals"
+line.options.yaxis.title.text = "Weight"
 scatter = page.ui.charts.apex.scatter(df.to_dict(orient="records"), y_columns=["Weight [g]"], x_axis="Animal")
+scatter.options.xaxis.title.text = "Animals"
+scatter.options.yaxis.title.text = "Weight"
+scatter.options.yaxis.labels.formatters.scale(1000000)
 page.ui.row([line, scatter])
 
 data = {
