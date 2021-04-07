@@ -23,6 +23,9 @@ df["index"] = df["index"].dt.strftime('%Y-%m-%d')
 
 lines = page.ui.charts.chartJs.line(df.to_dict(orient="records"), y_columns=list("ABCD"), x_axis="index")
 lines.options.elements.point.radius = 0
+lines.options.tooltips.callbacks.labelNumber(digit=2)
+lines.options.tooltips.intersect = False
+lines.options.tooltips.mode = "index"
 
 df3 = pd.DataFrame(np.random.randn(1000, 2), columns=["B", "C"]).cumsum()
 df3["A"] = pd.Series(list(range(len(df))))
@@ -36,8 +39,10 @@ bar = page.ui.charts.chartJs.bar(df4.to_dict(orient="records"), y_columns=["a", 
 
 bar.options.scales.xAxes.stacked = True
 bar.options.scales.yAxes.stacked = True
+bar.options.tooltips.callbacks.labelNumber(digit=2)
 
 hbar = page.ui.charts.chartJs.hbar(df4.to_dict(orient="records"), y_columns=["a", "b", "c", "d"], x_axis="index")
+hbar.options.tooltips.callbacks.labelNumber(digit=2)
 
 row = page.ui.row([bar, hbar])
 row.options.responsive = False
@@ -49,6 +54,7 @@ area = page.ui.charts.chartJs.area(df5.to_dict(orient="records"), y_columns=["a"
 area.colors(["red", "orange", "yellow", "blue"])
 area.options.scales.xAxes.stacked = True
 area.options.scales.yAxes.stacked = True
+area.options.tooltips.callbacks.labelNumber(digit=2)
 
 scatter = page.ui.charts.chartJs.scatter(df5.to_dict(orient="records"), y_columns=["b", "c", "d"], x_axis="a")
 scatter.options.scales.xAxes.scaleLabel.label("XAxis")
