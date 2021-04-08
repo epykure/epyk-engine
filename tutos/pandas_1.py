@@ -1,7 +1,7 @@
 
 import pandas as pd
 import numpy as np
-from epyk.core import Page as pk
+import epyk as pk
 
 np.random.seed(42)
 df = pd.DataFrame({
@@ -12,7 +12,7 @@ df = df + 50
 df = df.reset_index()
 df["Date"] = df["index"].dt.strftime('%Y-%m-%d')
 
-page = pk.Report()
+page = pk.Page()
 #page.skins.matrix()
 
 page.ui.title("Pandas tutorial #1")
@@ -50,3 +50,8 @@ bar.colors(["blue", "green", "orange"])
 page.ui.layouts.hr()
 page.ui.titles.subtitle("Report powered by")
 page.ui.rich.powered()
+
+
+if __name__ == "__main__":
+    # If the script is run directly for Python.
+    page.outs.html_file()

@@ -67,3 +67,8 @@ pie = page.ui.charts.chartJs.pie(df6.to_dict(orient="records"), y_columns=["seri
 page.ui.layouts.hr()
 page.ui.titles.subtitle("Report powered by")
 page.ui.rich.powered()
+
+
+if __name__ == "__main__":
+    # If the script is run directly for Python.
+    page.outs.html_file()
