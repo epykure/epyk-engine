@@ -12,7 +12,7 @@ chart_family = "c3"
 
 page = pk.Page()
 # if you want to use Google charts you will have uncomment the below line to authorise this
-#page.imports().google_products(['charts'])
+#page.imports.google_products(['charts'])
 
 template = page.body.add_template(defined_style="doc")
 template.style.css.background = page.theme.greys[0]
@@ -53,6 +53,10 @@ page.ui.titles.subtitle("Plot a Pie Chart using Pandas")
 table_4 = page.ui.table(df.to_dict(orient="records"))
 pie = page.ui.charts.plot(chart_family, df.to_dict(orient="records"), y=['Tasks'], x="index", kind="donut")
 row = page.ui.row([table_4, pie])
+
+page.ui.layouts.hr()
+page.ui.titles.subtitle("Report powered by")
+page.ui.rich.powered()
 
 
 if __name__ == "__main__":

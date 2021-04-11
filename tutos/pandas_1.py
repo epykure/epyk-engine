@@ -15,6 +15,7 @@ df["Date"] = df["index"].dt.strftime('%Y-%m-%d')
 page = pk.Page()
 #page.skins.matrix()
 
+
 page.ui.title("Pandas tutorial #1")
 page.ui.texts.references.github("https://github.com/PatrikHlobil/Pandas-Bokeh")
 template = page.body.add_template(defined_style="doc")
