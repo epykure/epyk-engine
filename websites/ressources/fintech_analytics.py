@@ -5,6 +5,7 @@ BUTTON_TRY = "Add a star to the repo"
 BUTTON_TWITTER = "Follow us on twitter"
 BUTTON_SEE = "Learn from templates"
 
+QRCODE = "https://github.com/epykure/epyk-templates/blob/master/websites/template_fintech_home.py"
 
 BANNER_TEXT = "Epyk is a full stack and Open Source Web library."
 TEXT_OPENSOURCE = "Open Source framework / No cost"

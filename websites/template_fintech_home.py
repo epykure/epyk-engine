@@ -4,7 +4,7 @@ from ressources import fintech_analytics
 
 page = pk.Page()
 
-qrcode = page.ui.qrcode("https://www.linkedin.com/notifications/")
+qrcode = page.ui.qrcode(fintech_analytics.QRCODE)
 qrcode.style.css.fixed(bottom=10, left=10)
 qrcode.style.css.cursor = "pointer"
 qrcode.style.css.z_index = 300
