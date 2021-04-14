@@ -9,6 +9,11 @@ page.body.style.globals.font.size = 18
 page.ui.banners.corner("Webtemplate", position="top")
 page.ui.contents().style.css.hide()
 
+qrcode = page.ui.qrcode("https://github.com/epykure/epyk-templates/blob/master/websites/template_home_1.py")
+qrcode.style.css.fixed(bottom=20, right=20)
+qrcode.style.css.cursor = "pointer"
+qrcode.style.css.z_index = 1000
+
 grp1 = page.ui.texts.button("Home")
 grp2 = page.ui.texts.button("Group")
 
@@ -106,3 +111,8 @@ banner.style.css.margin_top = 20
 
 row.options.responsive = False
 row.options.autoResize = False
+
+
+if __name__ == "__main__":
+    # If the script is run directly for Python.
+    page.outs.html_file()
