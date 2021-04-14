@@ -34,7 +34,9 @@ navbar.style.padding = "30px"
 # https://tinder.com/static/build/f92140b8942048e4fab4906b48c51db4.webp
 bg = page.ui.images.wallpaper(dating_data.WALLPAPER)
 bg.style.css.color = "white"
-bg.add(page.ui.texts.absolute(dating_data.SLOGAN, size_notch=50))
+slogan = page.ui.texts.absolute(dating_data.SLOGAN, size_notch=50)
+slogan.style.css.white_space = "nowrap"
+bg.add(slogan)
 bg.add(page.ui.texts.absolute(dating_data.SLOGAN_TEXT, align="center", size_notch=5, top=(60, "%")))
 
 button = page.ui.button(dating_data.BUTTON_SIGN_UP)
