@@ -23,3 +23,7 @@ img2.style.css.margin_right = "5%"
 
 page.ui.panels.sliding([img, img2], title="My apps")
 
+
+if __name__ == "__main__":
+    # If the script is run directly for Python.
+    page.outs.html_file()
