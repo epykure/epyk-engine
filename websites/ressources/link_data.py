@@ -48,3 +48,38 @@ MI_ROW_LINKS = [
   ['Microsoft Visual Studio'],
   ['Careers']
 ]
+
+BACKGROUND_2 = "https://static.whatsapp.net/rsrc.php/v3/yi/r/faBp1N-tAZL.png"
+
+CARROUSEL = [
+  'http://fr.web.img4.acsta.net/carousels/20/07/20/17/02/1300735.jpg'
+]
+
+CINEMA = 'CINÉMA'
+
+CINE_GROUPS = [
+  "Avant-premières",
+  "Agenda des sorties",
+  "Films pour enfants à l'affiche",
+  "Meilleurs films",
+  "Box Office"
+]
+
+NEW_CINE = "DERNIÈRES NEWS CINÉMA"
+
+VIGNETS = [
+  {'title': "NEWS - Box Office",
+  'content': "Box-office France : 1 million de spectateurs en salles la semaine dernière",
+  'image': 'http://fr.web.img5.acsta.net/c_400_225/newsv7/20/07/23/10/33/3487734.jpg'},
+  {'title': "NEWS - Sorties Ciné",
+  'content': 'Radioactive : Marjane Satrapi "en colère" face au sexisme envers les réalisatrices',
+  'image': 'http://fr.web.img6.acsta.net/c_400_225/newsv7/20/07/23/11/26/4668763.jpg'},
+  {'title': "NEWS - Tournages",
+  'content': "Tetris : Taron Egerton (Rocketman) dans un film sur l'histoire du jeu vidéo",
+  'image': 'http://fr.web.img2.acsta.net/c_400_225/newsv7/20/07/23/09/52/0904713.jpg'},
+]
+
+
+IMG_WORLD = "map-mercator-35ad397d9b34164063eb7d8900bac526.png"
+
+IMG_STATIC_PATH = "https://www.revolut.com/static"

@@ -53,9 +53,7 @@ bg.style.color = "white"
 content = page.ui.texts.absolute(
   "An excellent web Framework for Python", size_notch=12, bottom=(20, "px"), left=(10, "px"))
 content.style.css.transform = ""
-content.style.css.background = "-webkit-linear-gradient(#3776ab, #f0db4f)"
-content.css({"-webkit-text-fill-color": "transparent", "-webkit-background-clip": "text"})
-
+content.style.css.gradient_text("#3776ab", "#f0db4f", "right")
 bg.add(content)
 
 INFOS = '''

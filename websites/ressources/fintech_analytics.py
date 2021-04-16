@@ -1,5 +1,25 @@
 BACKGROUND_IMAGE = "https://github.com/epykure/epyk-templates/blob/master/static/images/banner_screen.PNG?raw=true"
 SLOGAN = "We're changing the way you think about data"
+TITLE = "My Page"
+
+TITLES = [
+  "API",
+  "Component",
+  "Architecture",
+  "GitHub",
+]
+
+TEXT_ADV = {'section': "EKYK-UI", 'title': "Simple, Collabotive & Agile",
+  'content': '''
+Be part of the implementation of modern software. Work with different teams using different languages to increase time to market 
+  '''}
+
+TEXT_ADV_2 = {'section': "EPYK-STUDIO", 'title': "Share your work with the community",
+  'content': '''
+Keep in touch with the community. Ask question and promote your work and new components to the Epyk ecosystem.
+Epyk Studio will give a new dimension to your work by allowing you to share it with users but also to get it reviewed by 
+other expert teams.
+'''}
 
 BUTTON_TRY = "Add a star to the repo"
 BUTTON_TWITTER = "Follow us on twitter"
@@ -33,11 +53,18 @@ VIGNETS = [
 Look and feel of the pages and each component can be changed. Nearly 100 external packages are currently available to give you
 a full control of the final results you can share with your friends or colleagues.
 '''},
-  {"image": "https://github.com/epykure/epyk-templates/blob/master/static/images/charts.PNG?raw=true", 'title': 'TO DATA SCIENCE',
+  {"image": "https://github.com/epykure/epyk-templates/blob/master/static/images/dashboard1.PNG?raw=true",
+   'title': 'TO DATA SCIENCE',
    "content": '''
 Epyk can also be used to display results and explore data. Any script dedicated to call an API or to analyse data can be interfaced with Epyk.
 This could then allow to share your findings, advertise your results and create your community!
 '''},
+  {"image": "https://github.com/epykure/epyk-templates/blob/master/static/images/webtemplates2.PNG?raw=true",
+   'title': 'TO DATA SCIENCE',
+   "content": '''
+  Epyk can also be used to display results and explore data. Any script dedicated to call an API or to analyse data can be interfaced with Epyk.
+  This could then allow to share your findings, advertise your results and create your community!
+  '''}
 ]
 
 QUOTE = '''
@@ -53,3 +80,49 @@ Thanks to this library, they will be able to generate rich dashboard or web page
 From global enterprises to early-stage startups and small businesses, people everywhere use Epyk to improve time to market and team collaboration.
 '''
 }
+
+WALLPAPER = r"https://github.com/epykure/epyk-templates/blob/master/static/images/webtemplates3.PNG?raw=true"
+WALLPAPER2 = r"https://github.com/epykure/epyk-templates/blob/master/static/images/dashboard1.PNG?raw=true"
+
+GIF = r"https://github.com/epykure/epyk-templates/blob/master/static/gifs/webtemplates1.gif?raw=true"
+
+ITEMS = ["Menu", "Charts", "Delivery", "Latest Updates"]
+MENU_ITEMS_SELECTED = "Menu"
+
+
+ECOSYSTEM = [
+  {"title": 'Epyk - UI: The Python full stack library',
+   'urlTitle': 'https://github.com/epykure/epyk-ui',
+   'icon': 'fab fa-github',
+   'url': 'https://github.com/epykure/epyk-ui',
+   'dsc': BANNER_ABOUT["content"]},
+  {"title": 'Epyk Studio: The web framework for Python',
+   'urlTitle': 'https://github.com/epykure/epyk-studio',
+   'url': 'https://github.com/epykure/epyk-studio',
+   'icon': 'fab fa-github',
+   'dsc': TEXT_ADV_2["content"]},
+  {"title": 'Epyk Templates: The Epyk community repository',
+   'urlTitle': 'https://github.com/epykure/epyk-templates',
+   'url': 'https://github.com/epykure/epyk-templates',
+   'icon': 'fab fa-github',
+   'dsc': '''
+This will centralise all the shared results from the various users of Epyk. Feel free to add your work and to demonstrate 
+the results. It is also a repository used by the studio in order to get all the templates and examples.
+No need to reinvent the wheel, just find your pyk!
+'''},
+  {"title": 'Epyk Notebooks: Jupyter Notebook for Epyk',
+   'urlTitle': 'https://nbviewer.jupyter.org/github/epykure/epyk-templates-notebooks/blob/master/index.ipynb',
+   'url': 'https://nbviewer.jupyter.org/github/epykure/epyk-templates-notebooks/blob/master/index.ipynb',
+   'icon': 'fab fa-python',
+   'dsc': '''
+All the Jupyter notebook shared by the community. This repository is also used to train people with the framework and be part
+of the architecture changes. Those notebook will group Data Science examples, tutorials and documentation.   
+'''},
+]
+
+ITEMS = [
+  "Totally Free",
+  "No hidden cost",
+  "Online community",
+  "90 Packages",
+]
