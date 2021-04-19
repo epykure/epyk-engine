@@ -70,12 +70,12 @@ def create_page():
   footer = page.ui.navigation.footer('@Data from pandas_datareader using yahoo as source.')
 
   page.components['button'].click([
-    page.components["button"].icon.dom.pulse(True),
+    page.components["button"].icon.dom.spin(True),
     page.js.post("/viewer", {"button": 'Data 1'}, components=[page.components["input"],
       page.components['date_from'], page.components['date_to']]).onSuccess([
       title.build(pk.events.data["title"]),
       table.build(pk.events.data["table"]),
-      page.components["button"].icon.dom.pulse(False)
+      page.components["button"].icon.dom.spin(False)
     ]),
   ])
   page.components["input"].enter([page.components['button'].dom.events.trigger("click")])
