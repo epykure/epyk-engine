@@ -78,7 +78,7 @@ def create_page():
   page = pk.Page()
   page.body.template.style.configs.margins()
 
-  qrcode = page.ui.qrcode("https://github.com/epykure/epyk-templates/blob/master/tutos/onepy/fastapi_webscrapping.py")
+  qrcode = page.ui.qrcode("https://github.com/epykure/epyk-templates/blob/master/tutos/onepy/fastapi_webscraping.py")
   qrcode.style.css.fixed(bottom=60, right=70)
   qrcode.style.css.cursor = "pointer"
   qrcode.style.css.z_index = 300
