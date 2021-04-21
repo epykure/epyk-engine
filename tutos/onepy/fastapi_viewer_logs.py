@@ -29,12 +29,17 @@ def home():
 @app.post("/viewer")
 async def get_view(request: Request):
   data = await request.json()
-  print(data)
   return {"message": f'From {data["from"]} to {data["to"]} Type **{data["log_typ"]}** Search Value {data["search"]}'}
 
 
 def create_page():
   page = pk.Page()
+
+  qrcode = page.ui.qrcode("https://github.com/epykure/epyk-templates/blob/master/tutos/onepy/fastapi_viewer_logs.py")
+  qrcode.style.css.fixed(bottom=60, right=70)
+  qrcode.style.css.cursor = "pointer"
+  qrcode.style.css.z_index = 300
+
   template = page.body.add_template(defined_style="margins")
 
   epyk = page.ui.icons.epyk()
