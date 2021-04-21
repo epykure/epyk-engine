@@ -78,11 +78,11 @@ def create_page():
   page = pk.Page()
   page.body.template.style.configs.margins()
 
-  qrcode = page.ui.qrcode("https://github.com/epykure/epyk-templates/blob/master/tutos/onepy/fastapi_viewer_logs.py")
+  qrcode = page.ui.qrcode("https://github.com/epykure/epyk-templates/blob/master/tutos/onepy/fastapi_webscrapping.py")
   qrcode.style.css.fixed(bottom=60, right=70)
   qrcode.style.css.cursor = "pointer"
   qrcode.style.css.z_index = 300
-  
+
   dt_from = page.ui.date(html_code='from', width=(120, "px"))
   dt_from.input.style.css.margin_bottom = 10
   dt_to = page.ui.date("2021-05-15", html_code='to', width=(120, "px"))
@@ -99,7 +99,7 @@ def create_page():
   bar.add(prices)
   page.ui.title("Eurostar average prices")
   line = page.ui.charts.chartJs.line(y_columns=['standard', 'premier', 'business'], x_axis='full_date')
-  bar = page.ui.charts.chartJs.bar(y_columns=['average'], x_axis='name')
+  bar = page.ui.charts.chartJs.bar(y_columns=['average'], x_axis='category')
   row = page.ui.row([line, bar])
   row.set_size_cols(8)
   prices.click([
