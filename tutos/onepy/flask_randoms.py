@@ -31,7 +31,7 @@ def create_page():
   container.style.css.max_width = "600px"
   container.style.css.margin = "auto"
   container.style.css.padding = "0 10px"
-  container.style.css.shadow_box()
+  container.style.configs.shadow()
 
   title = page.ui.titles.head("Pseudorandom Number Generator in Python")
   title.style.css.display = "inline-block"

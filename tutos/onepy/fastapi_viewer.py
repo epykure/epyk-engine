@@ -1,4 +1,22 @@
+"""
+**Simple Dashboard to render tables.**
 
+In this onePy script, you will learn how to use FASTAPI and Tabulator tables to render data from pandas_datareader.
+It is an interactive dashboard and the user can input some information in order to specify which data should be
+extracted from pandas_reader.
+
+This tutorial will illustrate how to:
+- Add a predefined template to the page.
+- Create a side bar using **navigation.shortcut** with components.
+- Add DOM feature using the components **.dom.spin(True)**.
+
+This report is quite advanced as it will use most of the features available in Epyk.
+Namely:
+- Use Ajax **page.js.post()** and **onSuccess** to link with server API.
+- Use **pk.events.data** to retrieve data from the REST API.
+- Get data from id using **html_code** and **page.components["input"]**
+
+"""
 import epyk as pk
 import pandas_datareader as pdr
 import pandas as pd
@@ -28,9 +46,8 @@ def home():
 @app.post("/viewer")
 async def get_view(request: Request):
   data = await request.json()
-  results = pdr.DataReader(data["input"], 'yahoo',
-     start=datetime(*map(lambda x: int(x), data["date_from"].split("-"))),
-     end=datetime(*map(lambda x: int(x), data["date_to"].split("-"))))
+  results = pdr.DataReader(data["input"], 'yahoo', start=datetime(*map(lambda x: int(x), data["date_from"].split("-"))),
+                           end=datetime(*map(lambda x: int(x), data["date_to"].split("-"))))
   results = results.reset_index()
   results['Date'] = pd.to_datetime(results['Date']).dt.strftime('%Y-%m-%d')
   results['Name'] = data["input"]

@@ -1,4 +1,22 @@
+"""
+**Simple Dashboard to render logs.**
 
+In this onePy script, you will learn how to use FASTAPI and some basic components.
+It is an interactive dashboard using a nav bar in order to filter the data to be displayed.
+
+This tutorial will illustrate how to:
+- Use some generic components from the framework.
+- Use a **QRcode** to create links.
+- Use templates for the page layout.
+- Use CSS shortcut to customise components **qrcode.style.css.**.
+
+This report is quite advanced as it will use some of the features available in Epyk.
+Namely:
+- Use CSS features from **.style.css** to change the style.
+- Search component with the **enter()** event.
+- **page.js.post()** to call the underlying FASTAPI server.
+
+"""
 import epyk as pk
 from epyk.core.data import components
 
@@ -65,15 +83,7 @@ def create_page():
   button.style.css.padding_right = 20
   search.enter([button.dom.events.trigger("click")])
 
-  bar = page.ui.div([
-    epyk,
-    dt_from,
-    dt_to,
-    select,
-    search,
-    text,
-    button
-  ])
+  bar = page.ui.div([epyk, dt_from, dt_to, select, search, text, button])
   bar.style.css.fixed(left=0, top=0)
   bar.style.css.background = page.theme.notch()
   bar.style.css.color = "white"
