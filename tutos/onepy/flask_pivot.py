@@ -43,7 +43,7 @@ def create_page():
   hr = page.ui.layouts.hr()
   box = page.ui.div()
   box.extend([title, powered, hr, ticker, from_dt, to_dt, button, sub_title, pivot])
-  box.style.doc()
+  box.style.configs.doc()
   return page
 
 
