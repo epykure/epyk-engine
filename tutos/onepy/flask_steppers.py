@@ -31,13 +31,13 @@ def create_page():
   btn1 = page.ui.button("Previous", icon="fas fa-caret-left")
   btn1.style.css.padding_h = 5
   btn1.click([
-    stepper.dom[pk.std.var("state").r].waiting(),
     stepper.dom[pk.std.var("state")].arrow(),
-    stepper.dom[pk.std.var("state")].text(""),
+    stepper.dom[pk.std.var("state")].waiting(),
+    stepper.dom[pk.std.var("state")].text("Waiting", color="black"),
     stepper.dom[pk.std.var("state")].css({"border-bottom": "1px solid white", "padding-bottom": "5px"}),
     pk.std.var("state", pk.std.maths.max(pk.std.parseInt(pk.std.var("state")) - 1, 0), global_scope=True),
     stepper.dom[pk.std.var("state")].css({"border-bottom": "1px solid green", "padding-bottom": "5px"}),
-    stepper.dom[pk.std.var("state")].triangle(),
+    stepper.dom[pk.std.var("state")].circle(),
     stepper.dom[pk.std.var("state")].pending(),
     stepper.dom[pk.std.var("state")].text("Pending", color="black"),
     tabs.dom[pk.std.var("state")].select(),
@@ -48,20 +48,17 @@ def create_page():
   btn2.click([
     stepper.dom[pk.std.var("state")].success(),
     stepper.dom[pk.std.var("state")].arrow(),
+    stepper.dom[pk.std.var("state")].text("Completed", color="black"),
     stepper.dom[pk.std.var("state")].css({"border-bottom": "1px solid white", "padding-bottom": "5px"}),
     pk.std.var("state", pk.std.maths.min(pk.std.parseInt(pk.std.var("state")) + 1, 2), global_scope=True),
     stepper.dom[pk.std.var("state")].css({"border-bottom": "1px solid green", "padding-bottom": "5px"}),
-    stepper.dom[pk.std.var("state")].triangle(),
+    stepper.dom[pk.std.var("state")].circle(),
+    stepper.dom[pk.std.var("state")].pending(),
     stepper.dom[pk.std.var("state")].text("Pending", color="black"),
     tabs.dom[pk.std.var("state")].select(),
     page.js.console.log(tabs.dom[pk.std.var("state")].innerText())
   ])
 
-  table = page.ui.table(mocks.popularity_2020)
-  table.options.paginationSize = 10
-  table.click([
-    page.js.console.log(pk.events.data)
-  ])
   page.body.onReady([
     pk.std.var("state", 0, global_scope=True)
   ])
