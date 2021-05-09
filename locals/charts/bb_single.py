@@ -1,9 +1,11 @@
 
-from epyk.core.Page import Report
+import epyk as pk
+import __init__
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev() # Change the Epyk logo
+__init__.add_banner(page, __file__)
 
 dataPoints = [
   {'x': 0, 'y': 10, 'y1': 10},
@@ -40,3 +42,4 @@ page.ui.button("reset").click([
   #c.js.render(),
 ])
 
+__init__.add_powered(page)

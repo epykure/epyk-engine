@@ -1,14 +1,18 @@
 
-from epyk.core.Page import Report
+import epyk as pk
+import __init__
 
+
+# Test module to get test data
 from epyk.tests import data_urls
 from epyk.tests import mocks
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev() # Change the Epyk logo
 page.body.set_background()
+__init__.add_banner(page, __file__)
 
 data = mocks.getSeries(5, 40)
 
@@ -23,7 +27,7 @@ p = page.ui.charts.c3.pie(data, y_columns=[1], x_axis='g')
 d = page.ui.charts.c3.donut(data, y_columns=[1], x_axis='g')
 s = page.ui.charts.c3.scatter(data, y_columns=list(range(4)), x_axis='x')
 
-page.ui.button("Click").click([
+bt = page.ui.button("Click").click([
   s.js.transform('bar'),
   s.d3
 ])
@@ -48,12 +52,13 @@ area_step = page.ui.charts.c3.area_step(data, y_columns=list(range(4)), x_axis='
 b = page.ui.charts.c3.bar(data, y_columns=list(range(4)), x_axis='x')
 h = page.ui.charts.c3.hbar(data, y_columns=list(range(4)), x_axis='g')
 
-#a.zoom.enabled = True
-#a.zoom.type = 'drag'
+box = page.ui.div()
+box.extend([[g, spline]])
+box.extend([[d, p]])
+box.add(bt)
+box.extend([s, ts, step])
+box.extend([b, h, area, area_step])
+box.style.configs.doc()
 
-page.ui.grid([
-  [g, p, d, spline],
-  [s, ts, step],
-  [b, h, area, area_step]
-])
+__init__.add_powered(page)
 

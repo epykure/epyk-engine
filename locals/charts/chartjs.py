@@ -1,12 +1,14 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
+
+# Test module to get test data
 from epyk.tests import data_urls
 from epyk.tests import mocks
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev() # Change the Epyk logo
 page.body.set_background()
 
