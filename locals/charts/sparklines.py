@@ -1,10 +1,12 @@
 
-from epyk.core.Page import Report
+import epyk as pk
+import __init__
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
+__init__.add_banner(page, __file__)
 
 page.ui.charts.sparkline("box", [1, 2, 3, 4, 5, 4, 3, 2, 1])
 l = page.ui.charts.sparkline("line", [1, 2, 3, 4, 5, 4, 3, 2, 10])
@@ -20,3 +22,5 @@ s.hover([
   page.js.console.log(s.dom.content),
   page.js.console.log(s.dom.offset),
 ])
+
+__init__.add_powered(page)

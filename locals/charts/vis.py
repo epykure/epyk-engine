@@ -1,14 +1,18 @@
 
-from epyk.core.Page import Report
+import epyk as pk
+import random
+import __init__
 
+
+# Test module to get test data
 from epyk.tests import data_urls
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
+__init__.add_banner(page, __file__)
 
-import random
 
 def getSeries(count, size, negatives=0.1, missing=0.2):
   data = []
@@ -51,11 +55,19 @@ network.onReady([
   network.js.setData({"nodes": [{"id": 0, "label": "test"}], "edges": []}),
 ])
 
-page.ui.button("click").click([
+bt = page.ui.button("click").click([
   network.js.setData({"nodes": [{"label": "hahaha"}], "edges": []}),
 ])
 
-page.ui.grid([
-  [line, bar, scatter],
-  [surface, line3d, scatter3d],
-])
+box = page.ui.div()
+box.style.css.background = "white"
+box.style.css.padding_left = 10
+box.style.css.padding_right = 10
+box.extend([[line, bar, scatter]])
+box.extend([bar3d, scatter3d])
+box.add(surface)
+box.add(line3d)
+box.extend([bt, network])
+box.style.configs.doc()
+__init__.add_powered(page)
+

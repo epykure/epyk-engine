@@ -1,16 +1,18 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
+
+# Test module to get test data
 from epyk.tests import mocks
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 page.ui.hidden("Test")
 
 input = page.ui.input()
-chips = page.ui.select(mocks.languages, column="type")
+chips = page.ui.select(pk.inputs.select.from_records(mocks.languages, column="type"))
 
 #
 filters = page.ui.panels.filters()
@@ -19,12 +21,13 @@ filter = page.data.js.record(data=mocks.languages).filterGroup("test")
 filter2 = page.data.js.record(data=mocks.languages).filterGroup("test2")
 
 c = page.ui.charts.chartJs.bubble(mocks.languages, y_columns=["rating", 'change'], x_axis='name')
-c.label(0, "Test")
+c.label(0, "New Test label")
 
 data = [{"label": "python", "value": False}, {"label": "Java", "value": 5}]
 checks1 = page.ui.lists.checks(data)
 
-checks2 = page.ui.lists.checks(mocks.languages, column="name", options={"checked": True})
+c_data = pk.inputs.check.from_records(mocks.languages, "name")
+checks2 = page.ui.lists.checks(c_data, options={"checked": True})
 
 checks2.click([
   page.js.console.log(page.js.objects.value),

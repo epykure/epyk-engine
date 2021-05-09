@@ -1,9 +1,9 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 scripts = ["https://cdnjs.cloudflare.com/ajax/libs/venn.js/0.2.20/venn.min.js"]

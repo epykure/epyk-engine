@@ -1,10 +1,12 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
+
+# Test module to get test data
 from epyk.tests import mocks
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
 page.body.set_background()
 
@@ -36,8 +38,8 @@ data = mocks.getSeries(5, 30)
 line = page.ui.charts.dc.line(data, y_columns=[1, 2], x_axis='x')
 step = page.ui.charts.dc.step(data, y_columns=[1, 2], x_axis='x')
 bar = page.ui.charts.dc.bar(data, y_columns=[3, 4], x_axis='x')
-hbar = page.ui.charts.dc.hbar(data[:10], y_column=4, x_axis='x')
-pie = page.ui.charts.dc.pie(data[:5], y_column=3, x_axis='x')
+hbar = page.ui.charts.dc.hbar(data[:10], y_columns=4, x_axis='x')
+pie = page.ui.charts.dc.pie(data[:5], y_columns=3, x_axis='x')
 scatter = page.ui.charts.dc.scatter(data, y_columns=[2, 4], x_axis='x')
 bubble = page.ui.charts.dc.bubble(data, y_columns=3, x_axis='x', r_axis=4, options={'statc_factor': '/10'})
 

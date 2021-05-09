@@ -1,16 +1,15 @@
 
-from epyk.core.Page import Report
+import epyk as pk
+import __init__
 
-
-page = Report()
+page = pk.Page()
 page.headers.dev()
+__init__.add_banner(page, __file__)
 
 c = page.ui.charts.nvd3.gauge(42)
-#
 
 page.ui.button("reset").click([
   c.build(40),
-  #c.js.render(),
 ])
 
 
@@ -21,5 +20,6 @@ dataPoints3 = [
 
 page.ui.button("reset").click([
   c.build(90),
-  #c.js.render(),
 ])
+__init__.add_powered(page)
+

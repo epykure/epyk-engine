@@ -1,10 +1,12 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
+
+# Test module to get test data
 from epyk.tests import mocks
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 
@@ -18,7 +20,7 @@ select = page.ui.select([
 
 c = page.ui.charts.chartJs.bar(mocks.languages, y_columns=["rating", 'change'], x_axis='name')
 
-checks = page.ui.lists.checks(mocks.languages, column="name", options={"checked": True})
+checks = page.ui.lists.checks(pk.inputs.check.from_records(mocks.languages, column="name"), options={"checked": True})
 
 select.change([
   c.build(filter1.includes('name', checks.dom.content).group().sumBy(['rating', 'change'], select.dom.content, 'name'))
@@ -48,3 +50,10 @@ d.add_panel([
   select_all, unselect_all,
   checks], [c], display='block')
 
+
+box = page.ui.div()
+box.style.css.background = "white"
+box.style.css.padding_left = 10
+box.style.css.padding_right = 10
+box.extend([select, d])
+box.style.configs.doc()

@@ -1,8 +1,8 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 pie = page.ui.charts.plotly.pie()

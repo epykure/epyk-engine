@@ -1,12 +1,14 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
+
+# Test module to get test data
 from epyk.tests import data_urls
 from epyk.tests import mocks
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 page.body.set_background()
@@ -47,12 +49,12 @@ sc = page.ui.charts.plotly.scatter(data_series, y_columns=[1, 2], x_axis=0)
 sc.layout.no_background()
 sc.layout.no_grid()
 sc.click([
-  page.js.alert("Ok")
+  page.js.alert("This is an alert")
 ])
 
 shape = sc.layout.shapes.add_line(-100, 10, -50, -10, color="red")
 an = sc.layout.annotations
-an.text = "Super"
+an.text = "This is a text"
 an.x = 10
 an.y = 10
 an.showarrow = False

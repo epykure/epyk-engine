@@ -1,34 +1,34 @@
 
-from epyk.core.Page import Report
+import epyk as pk
+import __init__
 
+from epyk.core.data import nvd3
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
+__init__.add_banner(page, __file__)
 
 dataPoints = [
-  {'x': 0, 'y': 10, 'y1': 10},
-  {'x': 1, 'y': 35, 'y1': 20},
-  {'x': 2, 'y': 25, 'y1': 10},
-  {'x': 3, 'y': 30, 'y1': 5},
-  {'x': 4, 'y': 28, 'y1': 10}]
+  {'x': "Series A", 'y': 10, 'y1': 10},
+  {'x': "Series B", 'y': 35, 'y1': 20},
+  {'x': "Series B", 'y': 25, 'y1': 10},
+  {'x': "Series C", 'y': 30, 'y1': 5},
+  {'x': "Series A", 'y': 28, 'y1': 10}]
 
 dataPoints2 = [
-  {'label': "mango", 'x': 0, 'y': 30, 'y1': 0},
-  {'label': "grape", 'x': 1, 'y': 28, 'y1': 0}
+  {'label': "mango", 'x': "Series A", 'y': 30, 'y1': 0},
+  {'label': "grape", 'x': "Series B", 'y': 28, 'y1': 0}
 ]
 
-page.ui.hidden("Test")
-
-c = page.ui.charts.nvd3.line(dataPoints, y_columns=["y"], x_axis='x')
+c = page.ui.charts.nvd3.pie(dataPoints, y_columns=["y"], x_axis='x')
 
 # c.click([
 #   page.js.console.log("event", skip_data_convert=True)
 # ])
 
 
-page.ui.button("reset").click([
-  c.build(dataPoints2),
-  #c.js.render(),
+page.ui.button("Load").click([
+  c.build(nvd3.xy(dataPoints2, ["y"], "x")),
 ])
 
 #c.click([
@@ -41,7 +41,7 @@ dataPoints3 = [
 ]
 
 page.ui.button("reset").click([
-  c.build(dataPoints3),
-  #c.js.render(),
+  c.build(nvd3.xy(dataPoints3, ["y"], "x")),
 ])
+__init__.add_powered(page)
 

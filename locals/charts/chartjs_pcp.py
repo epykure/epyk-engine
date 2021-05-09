@@ -1,10 +1,12 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
+
+# Test module to get test data
 from epyk.tests import mocks
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 c = page.ui.charts.chartJs.custom(mocks.languages, y_columns=["rating", 'change'], x_axis='name',

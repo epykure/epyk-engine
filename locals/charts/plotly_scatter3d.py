@@ -1,10 +1,12 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
+
+# Test module to get test data
 from epyk.tests import data_urls
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 data = page.py.requests.csv(data_urls.PLOTLY_WEBGL_POLAR)

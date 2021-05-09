@@ -1,14 +1,18 @@
 
-from epyk.core.Page import Report
+import epyk as pk
+import __init__
 
+
+# Test module to get test data
 from epyk.tests import data_urls
 from epyk.tests import mocks
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 page.body.set_background()
+__init__.add_banner(page, __file__)
 
 # Input data
 data = mocks.getSeries(5, 40)
@@ -90,4 +94,5 @@ page.ui.grid([
   [pie, donut, donut_s]
 ])
 
+__init__.add_powered(page)
 
