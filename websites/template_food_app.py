@@ -1,8 +1,10 @@
 import epyk as pk
+import __init__
 from ressources import fintech_analytics
 
 
 page = pk.Page()
+__init__.add_banner(page, __file__)
 page.themes.pink(dark=False)
 
 #skin = page.skins.fireworks()
@@ -54,4 +56,6 @@ page.ui.banners.title(title=fintech_analytics.BANNER_TEXT, content=fintech_analy
 
 img = page.ui.img(fintech_analytics.GIF, width=(300, 'px'))
 page.body.style.css.padding_bottom = 20
+
+__init__.add_powered(page)
 

@@ -1,9 +1,11 @@
 
 import epyk as pk
+import __init__
 from ressources import fintech_analytics
 
 
 page = pk.Page()
+__init__.add_banner(page, __file__)
 page.body.style.globals.font.size = 16
 page.ui.contents().style.css.hide()
 page.body.style.css.padding = "0 50px"
@@ -15,3 +17,4 @@ page.ui.img("https://github.com/epykure/epyk-ui/blob/master/epyk/static/images/e
 page.ui.rich.search_input("Best Python web library")
 page.ui.rich.search_results(fintech_analytics.ECOSYSTEM)
 
+__init__.add_powered(page)

@@ -1,8 +1,11 @@
 
 import epyk as pk
+import __init__
 
 
 page = pk.Page()
+__init__.add_banner(page, __file__)
+
 page.ui.banners.corner("Webtemplate", position="top")
 page.ui.contents().style.css.hide()
 page.body.add_template(defined_style="margins")
@@ -22,6 +25,7 @@ img.style.css.margin_left = "5%"
 img2.style.css.margin_right = "5%"
 
 page.ui.panels.sliding([img, img2], title="My apps")
+__init__.add_powered(page)
 
 
 if __name__ == "__main__":

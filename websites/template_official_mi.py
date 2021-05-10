@@ -1,8 +1,10 @@
 import epyk as pk
+import __init__
 from ressources import link_data
 
 
 page = pk.Page()
+__init__.add_banner(page, __file__)
 page.ui.contents().style.css.hide()
 nav = page.ui.navbar(height=(40, "px"))
 nav.style.css.padding_left = "30px"
@@ -31,3 +33,5 @@ page.ui.vignets.background("%s%s" % (link_data.MI_ITEM_PATH, link_data.MI_REMOTE
 page.ui.banners.follow("Follow Microsoft", width=(90, "%"))
 page.ui.banners.row(link_data.MI_ROW_HEADERS, link_data.MI_ROW_LINKS)
 page.ui.banners.disclaimer(link_data.MI_DISCLAIMER_TEXT, links=link_data.MI_DISCLAIMER_LINKS)
+
+__init__.add_powered(page)

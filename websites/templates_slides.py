@@ -1,7 +1,9 @@
 import epyk as pk
+import __init__
 from ressources import fintech_analytics
 
 page = pk.Page()
+__init__.add_banner(page, __file__, "top")
 page.body.style.globals.size = 18
 slides = page.ui.vignets.slides(start=1)
 page.ui.contents().style.css.hide()
@@ -30,3 +32,5 @@ for i, vignet in enumerate(fintech_analytics.VIGNETS):
 
 slides[-1].style.css.background = 'white'
 slides[-1].style.css.background = 'white'
+
+__init__.add_powered(page)

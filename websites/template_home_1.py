@@ -1,18 +1,15 @@
 
 import epyk as pk
+import __init__
 from ressources import fintech_analytics
 
 
 page = pk.Page()
+__init__.add_banner(page, __file__)
 page.body.style.globals.font.size = 18
 
 page.ui.banners.corner("Webtemplate", position="top")
 page.ui.contents().style.css.hide()
-
-qrcode = page.ui.qrcode("https://github.com/epykure/epyk-templates/blob/master/websites/template_home_1.py")
-qrcode.style.css.fixed(bottom=20, right=20)
-qrcode.style.css.cursor = "pointer"
-qrcode.style.css.z_index = 1000
 
 grp1 = page.ui.texts.button("Home")
 grp2 = page.ui.texts.button("Group")
@@ -108,6 +105,8 @@ ic5 = page.ui.icons.youtube()
 banner = page.ui.banners.title(title="Contacts", content=page.ui.div([ic1, ic2, ic3, ic4, ic5], align="center"))
 banner.style.css.margin_top = 20
 
+
+__init__.add_powered(page)
 
 row.options.responsive = False
 row.options.autoResize = False

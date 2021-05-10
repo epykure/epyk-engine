@@ -1,9 +1,12 @@
 
 import epyk as pk
+import __init__
+
 from ressources import fintech_analytics
 from ressources import link_data
 
 page = pk.Page()
+__init__.add_banner(page, __file__)
 page.ui.contents().style.css.hide()
 
 logo = page.ui.text("Epyk")
@@ -51,3 +54,4 @@ row = page.ui.row([
   page.ui.col([text1, container], position="top", height=(100, "%")),
   page.ui.col([text2, container2], height=(100, "vh"))], height=(100, "vh"))
 row.options.noGutters = True
+__init__.add_powered(page)

@@ -1,14 +1,10 @@
 import epyk as pk
+import __init__
 from ressources import fintech_analytics
 
 
 page = pk.Page()
-
-qrcode = page.ui.qrcode(fintech_analytics.QRCODE)
-qrcode.style.css.fixed(bottom=10, left=10)
-qrcode.style.css.cursor = "pointer"
-qrcode.style.css.z_index = 300
-
+__init__.add_banner(page, __file__)
 
 page.ui.contents().style.css.hide()
 
@@ -93,5 +89,7 @@ quote.style.css.margin = "40px 0"
 
 about_epyk = page.ui.banners.title(fintech_analytics.BANNER_ABOUT['title'], fintech_analytics.BANNER_ABOUT['content'])
 about_epyk.style.css.padding = "40px 10%"
+
+__init__.add_powered(page)
 
 footer = page.ui.banners.text("", background="black")

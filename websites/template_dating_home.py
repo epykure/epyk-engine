@@ -1,17 +1,15 @@
 
 import epyk as pk
+import __init__
 from ressources import dating_data
 
 
 page = pk.Page()
+__init__.add_banner(page, __file__)
+
 page.themes.red()
 page.ui.contents().style.css.hide()
 page.headers.title(dating_data.TITLE)
-
-qrcode = page.ui.qrcode(dating_data.QRCODE)
-qrcode.style.css.fixed(bottom=60, left=60)
-qrcode.style.css.cursor = "pointer"
-qrcode.style.css.z_index = 300
 
 heart = page.ui.icon("fas fa-heart")
 heart.style.css.color = page.theme.colors[-1]

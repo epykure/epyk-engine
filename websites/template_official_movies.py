@@ -1,9 +1,11 @@
 
 import epyk as pk
+import __init__
 from ressources import link_data
 
 
 page = pk.Page()
+__init__.add_banner(page, __file__)
 page.ui.contents().style.css.hide()
 page.body.style.css.background = '#F2F2F2'
 
@@ -41,3 +43,4 @@ about.button.click([
   page.js.console.log(about.dom.val)
 ])
 
+__init__.add_powered(page)

@@ -1,7 +1,9 @@
 
 import epyk as pk
+import __init__
 
 page = pk.Page()
+__init__.add_banner(page, __file__)
 
 page.body.style.globals.font.size = 20
 

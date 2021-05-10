@@ -1,8 +1,10 @@
-from epyk.core.Page import Report
+import epyk as pk
+import __init__
 from ressources import fintech_analytics
 
 
-page = Report()
+page = pk.Page()
+__init__.add_banner(page, __file__)
 page.ui.contents().style.css.hide()
 
 page.headers.title(fintech_analytics.BANNER_TEXT)
@@ -23,3 +25,4 @@ for name in fintech_analytics.ITEMS:
     name, menu if name == fintech_analytics.MENU_ITEMS_SELECTED else page.ui.div(),
     selected=name == fintech_analytics.MENU_ITEMS_SELECTED)
 
+__init__.add_powered(page)

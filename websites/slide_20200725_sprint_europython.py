@@ -1,11 +1,14 @@
 
 import epyk as pk
+import __init__
+
 from ressources import blablacar_data
 from epyk.tests import mocks, data_urls
 
 import random
 
 page = pk.Page()
+__init__.add_banner(page, __file__, "top")
 
 #
 data_rest = page.py.requests.csv(data_urls.PLOTLY_APPLE_PRICES)
@@ -158,6 +161,8 @@ slides.add_slide("Epyk - Where to find it ?", [
 ])
 
 sp = page.ui.banners.sponsor(["BFM-Business.png", '20-MIN.png', 'microsoft.jpg'])
+
+__init__.add_powered(page)
 
 #page.ui.button("Click").click([
 #  slides.dom.goTo(5)

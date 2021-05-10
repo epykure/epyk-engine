@@ -1,7 +1,9 @@
 import epyk as pk
+import __init__
 from ressources import blablacar_data
 
 page = pk.Page()
+__init__.add_banner(page, __file__)
 page.ui.contents().style.css.hide()
 
 svg = page.ui.charts.svg.new((1199.96, 'px'), (1014.39, 'px'))
@@ -77,3 +79,5 @@ b1 = page.ui.button(blablacar_data.BUTTON_FIND_RIDE, align="center").css(button_
 b1.style.css.margin_bottom = 10
 
 page.ui.button(blablacar_data.BUTTON_OFFER_RIDE, align="center").css(button_inv_style)
+
+__init__.add_powered(page)
