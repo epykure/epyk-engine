@@ -41,6 +41,7 @@ items.enter([cols_keys.dom.add(items.dom.content), items.dom.empty()])
 
 button.click([
   std.var("graphData").fromArrayToRecord().setVar("records"),
+  page.js.console.log(cols_keys.dom.content),
   line.build(std.var("records"), options={"y_columns": cols_keys.dom.content, "x_axis": "Date"})
 ])
 

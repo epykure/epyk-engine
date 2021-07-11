@@ -1,7 +1,7 @@
 
 from epyk.core.css.themes import ThemeBlue
 from epyk.core.js import std
-from epyk_studio.core.Page import Report
+from epyk.core.Page import Report
 from epyk.core.data import events
 
 
@@ -28,17 +28,15 @@ items.options.on_select([
 ])
 
 line = page.ui.charts.chartJs.line(x_axis="Date", profile=True)
-line.options.scales.x_axes().type = "time"
+x_axis = line.options.scales.x_axes()
+#x_axis.type = "time"
+x_axis.ticks.callback("@")
 line.options.elements.point.radius = 0
-line.options.scales.x_axes().distribution = 'linear'
+#line.options.scales.x_axes().distribution = 'linear'
 
 tag = page.ui.rich.powered()
 tag.style.css.margin_bottom = 5
 tag.style.css.margin_top = 5
-
-box = page.studio.containers.box()
-box.extend([title, tag, items, cols_keys, button, line])
-box.style.standard()
 
 items.enter([cols_keys.dom.add(items.dom.content), items.dom.empty()])
 

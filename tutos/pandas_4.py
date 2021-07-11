@@ -33,7 +33,7 @@ page.ui.titles.section("Formula")
 page.ui.texts.formula(r'''$$ f(x) = \frac{2xe^{-x^ {\kern 0.04 em 2}/\alpha}}{\alpha} \qquad \qquad x > 0. $$''')
 
 line = page.ui.charts.plot(chart_family, kind="line")
-line.labels(list(day_num))
+#line.labels(list(day_num))
 line.add_dataset(daily_words, "daily")
 line.add_dataset([float(i) for i in cumulative_words], "Cumulative daily")
 

@@ -9,9 +9,9 @@ page = Report()
 page.theme = ThemeBlue.BlueGrey()
 
 world = page.ui.geo.chartJs.choropleths.world(height=200)
-world.plugins.datalabels.display = False
+#world.plugins.datalabels.display = False
 world2 = page.ui.geo.chartJs.choropleths.world(height=200)
-world2.plugins.datalabels.display = False
+#world2.plugins.datalabels.display = False
 
 title = page.ui.title("COVID Map")
 title_country = page.ui.title()
@@ -20,13 +20,13 @@ title_country2 = page.ui.title()
 bar = page.ui.charts.chartJs.bar([], ['Confirmed', 'Deaths', 'Recovered'], 'Country/Region', height=200)
 bar.options.scales.y_axis().ticks.toNumber()
 bar.options.tooltips.callbacks.labelNumber()
-bar.plugins.datalabels.formatters.details()
+#bar.plugins.datalabels.formatters.details()
 bar.options.legend.display = False
 
 bar2 = page.ui.charts.chartJs.bar([], ['Confirmed', 'Deaths', 'Recovered'], 'Country/Region', height=200)
 bar2.options.scales.y_axis().ticks.toNumber()
 bar2.options.tooltips.callbacks.labelNumber()
-bar2.plugins.datalabels.formatters.details()
+#bar2.plugins.datalabels.formatters.details()
 bar2.options.legend.display = False
 
 row = page.ui.row([world, [title_country, bar]], position="top")

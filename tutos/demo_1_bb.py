@@ -29,6 +29,9 @@ items.options.on_select([
 ])
 
 line = page.ui.charts.billboard.line(x_axis="Date")
+line.options.x = "x"
+line.options.axis.x.tick.formats.format()
+line.options.axis.x.type = "category"
 
 tag = page.ui.rich.powered()
 tag.style.css.margin_bottom = 5

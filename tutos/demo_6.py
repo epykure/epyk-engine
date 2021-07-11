@@ -15,14 +15,14 @@ tickers_info = {
   'JPM': "JPMorgan Chase",
   'SAN.MC': "Banco Santander",
   'C.MX': "Citigroup Inc.",
-  'HSBC-PA': "HSBC Holdings PLC"
+  #'HSBC-PA': "HSBC Holdings PLC"
 }
 
 tickers = list(tickers_info.keys())
 
 series = []
 for t in tickers:
-  s = data.DataReader(t, 'yahoo', start, end)
+  s = data.DataReader(t, 'yahoo', start)
   s[t] = (s["Open"] + s["Close"]) / 2
   prices = s[[t]]
   prices.reset_index("Date")
@@ -62,13 +62,16 @@ chart.options.tooltips.callbacks.labelCurrency("$", digit=4)
 
 grp = page.data.js.record(records).filterGroup("aggData")
 
-select = page.ui.fields.select([{'name': v, 'value': k, "selected": True} for k, v in tickers_info.items()], label="Companies", multiple=True, options={"empty_selected": False})
+select = page.ui.fields.select([
+  {'name': v, 'value': k, "selected": True} for k, v in tickers_info.items()], label="Companies", multiple=True,
+  options={"empty_selected": False})
 
 text.click([from_dt.input.build(text.dom.content), button.dom.events.trigger("click")])
 text_6m.click([from_dt.input.build(text_6m.dom.content), button.dom.events.trigger("click")])
 text_2m.click([from_dt.input.build(text_2m.dom.content), button.dom.events.trigger("click")])
 text_1m.click([from_dt.input.build(text_1m.dom.content), button.dom.events.trigger("click")])
-text_all.click([from_dt.input.build(records[0]["Date"]), chart.build(grp, options={"y_columns": select.input.dom.content, "x_axis": "Date"})])
+text_all.click([from_dt.input.build(records[0]["Date"]), chart.build(
+  grp, options={"y_columns": select.input.dom.content, "x_axis": "Date"})])
 
 box = page.studio.containers.box()
 box.extend([title, select, from_dt, to_dt, button, page.ui.layouts.hr(margins=5), buttons, chart])
