@@ -1,17 +1,15 @@
 
 import epyk as pk
 import random
-import __init__
 
 
 # Test module to get test data
-from epyk.tests import data_urls
+from epyk.mocks import urls as data_urls
 
 
 # Create a basic report object
 page = pk.Page()
 page.headers.dev()
-__init__.add_banner(page, __file__)
 
 
 def getSeries(count, size, negatives=0.1, missing=0.2):
@@ -69,5 +67,4 @@ box.add(surface)
 box.add(line3d)
 box.extend([bt, network])
 box.style.configs.doc()
-__init__.add_powered(page)
 

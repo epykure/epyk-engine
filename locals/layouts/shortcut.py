@@ -1,11 +1,10 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 from epyk.core.data import http
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
-
 
 shortcuts = page.ui.navigation.shortcut([
   'fab fa-python',

@@ -1,9 +1,8 @@
 
+import epyk as pk
 
-from epyk.core.Page import Report
 
-
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 nav_bar = page.ui.navigation.bar(title="This is a title")

@@ -4,10 +4,12 @@ from epyk.core.Page import Report
 page = Report()
 page.headers.dev()
 
+page.body.style.globals.size = 14
+
 #
 from epyk.core.css import Defaults
 
-Defaults.Font.size = 14
+#Defaults.Font.size = 14
 
 #
 

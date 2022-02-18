@@ -1,17 +1,11 @@
 
-from epyk.core.Page import Report
-
-from epyk.core.js import expr
-from epyk.core.js import std
-from epyk.core.css.themes import ThemeBlue
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
-page.theme = ThemeBlue.BlueGrey()
-page.body.add_template(defined_style="doc")
-
+page.theme = pk.themes.ThemeBlue.BlueGrey()
 
 page.ui.title("JavaScript Try / Except statement")
 
@@ -24,23 +18,18 @@ input = page.ui.input()
 
 # Simple try except example
 input.enter([
-  expr
+  pk.js_expr
     .try_(input.dom.content.number.toPrecision(500))
-    .catch([std.console.log("Error raised precision too large")
+    .catch([pk.js_std.console.log("Error raised precision too large")
   ])
 ])
 
 
 input2 = page.ui.input()
 input2.enter([
-  # Alway raise an exception
-  expr.throw("Error! Error!")
+  # Always raise an exception
+  pk.js_expr.throw("Error! Error!")
 ])
-
-
-page.ui.layouts.hr()
-page.ui.titles.subtitle("Report powered by")
-page.ui.rich.powered()
 
 
 if __name__ == "__main__":

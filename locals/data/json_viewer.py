@@ -1,12 +1,11 @@
-##
 
-from epyk.core.Page import Report
+import epyk as pk
 
-from epyk.tests import data_urls
+from epyk.mocks import urls as data_urls
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 # retrieve some random json data

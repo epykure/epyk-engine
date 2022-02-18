@@ -1,10 +1,9 @@
 
-from epyk.core.Page import Report
-from epyk.core.data import events
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 rows = []
@@ -20,6 +19,6 @@ sortable = grid.body.sortable(propagate_only=True)
 
 div = page.ui.div("Test")
 div.drop([
-  div.build(events.data)
+  div.build(pk.events.data)
 ])
 

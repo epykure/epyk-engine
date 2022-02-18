@@ -1,32 +1,34 @@
 # http://jsfiddle.net/KUCaL/
 
-from epyk.core.Page import Report
+import epyk as pk
+
 from epyk.core.css import Defaults
 
-from epyk.core.css.themes import ThemeDark
 
 #
 #Defaults.BACKGROUND = None
 Defaults.BODY_CONTAINER = {"border": None}
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
-page.theme = ThemeDark.Dark()
+page.theme = pk.themes.ThemeDark.Dark()
 
 # Console component
-c = page.ui.rich.console("* This is a log section for all the events in the different buttons *", options={"timestamp": True})
+c = page.ui.rich.console(
+  "* This is a log section for all the events in the different buttons *", options={"timestamp": True})
 
 page.ui.layouts.iframe("http://www.google.com")
 
 #
-dd = page.ui.icon("fas fa-arrow-down").css({"border": '1px solid black', "position": 'fixed', "width": 'none',
-                   "border-radius": '20px', "padding": '8px', "left": '20px'})
+dd = page.ui.icon("fas fa-arrow-down").css(
+  {"border": '1px solid black', "position": 'fixed', "width": 'none',
+   "border-radius": '20px', "padding": '8px', "left": '20px'})
 
-du = page.ui.icon("fas fa-arrow-up").css({"border": '1px solid black', "position": 'fixed', "width": 'none',
-                   "border-radius": '20px', "padding": '8px', "left": '20px', "bottom": "20px"})
-
+du = page.ui.icon("fas fa-arrow-up").css(
+  {"border": '1px solid black', "position": 'fixed', "width": 'none',
+   "border-radius": '20px', "padding": '8px', "left": '20px', "bottom": "20px"})
 
 #page.ui.navigation.down()
 page.ui.navigation.pin("test")
@@ -67,7 +69,8 @@ page.ui.layouts.hr()
 page.ui.layouts.new_line(5)
 
 for i in range(70, 100):
-  t = page.ui.text("this [test](http://www.google.com) !(fab fa-python) --is-- ***an*** *example*, **ok**", options={"limit_char": i})
+  t = page.ui.text(
+    "this [test](http://www.google.com) !(fab fa-python) --is-- ***an*** *example*, **ok**", options={"limit_char": i})
   t.options.markdown = True
   #page.js.addOnLoad(t.refresh())
 

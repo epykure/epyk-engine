@@ -1,12 +1,13 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 # Console component
-c = page.ui.rich.console("* This is a log section for all the events in the different buttons *", options={"timestamp": True})
+c = page.ui.rich.console(
+  "* This is a log section for all the events in the different buttons *", options={"timestamp": True})
 
 
 s1 = page.ui.slider(40)
@@ -32,13 +33,13 @@ s4 = page.ui.sliders.range([12, 546, 98])
 page.ui.layouts.hr()
 
 # Set a slider of dates
-s5 = page.ui.sliders.date("2020-01-02", min="2020-01-01", max="2020-12-31")
+s5 = page.ui.sliders.date("2020-01-02", minimum="2020-01-01", maximum="2020-12-31")
 s5.options.range = "min"
 
 page.ui.layouts.hr()
 
 # Set a slider for a range of dates
-s6 = page.ui.sliders.date_range("2020-01-02", "2020-06-02", min="2020-01-01", max="2020-12-31")
+s6 = page.ui.sliders.date_range("2020-01-02", "2020-06-02", minimum="2020-01-01", maximum="2020-12-31")
 
 for col in row:
   col.css({"padding": '5px'})

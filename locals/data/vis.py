@@ -1,11 +1,11 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
-from epyk.tests import data_urls
+from epyk.mocks import urls as data_urls
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 data_rest_1 = page.py.requests.csv(data_urls.DC_QUAKES)
@@ -13,7 +13,6 @@ data_rest_1 = page.py.requests.csv(data_urls.DC_QUAKES)
 # Main cross filter object
 vis_dataset = page.js.data.dataset(data_rest_1, "dataset1")
 vis_dataview = page.js.data.dataview(vis_dataset, "dataview1")
-
 
 page.body.onReady([
   vis_dataset, vis_dataview,

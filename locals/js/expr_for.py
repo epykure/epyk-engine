@@ -1,15 +1,11 @@
 
-from epyk.core.Page import Report
-from epyk.core.js import expr
-from epyk.core.js import std
-from epyk.core.css.themes import ThemeBlue
+import epyk as pk
+
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
-page.theme = ThemeBlue.BlueGrey()
-page.body.add_template(defined_style="doc")
-
+page.theme = pk.themes.ThemeBlue.BlueGrey()
 
 page.ui.title("JavaScript For statement")
 
@@ -25,24 +21,20 @@ c = page.ui.rich.console(
 
 input.enter([
   c.dom.write("Common for loop"),
-  expr.for_(input).fncs([
-    c.dom.write(std.var("i"))
+  pk.js_expr.for_(input).fncs([
+    c.dom.write(pk.js_std.var("i"))
   ]),
 
   c.dom.write("For loop on object properties"),
-  expr.forIn(input).fncs([
-    std.console.log(std.var("x"))
+  pk.js_expr.forIn(input).fncs([
+    pk.js_std.console.log(pk.js_std.var("x"))
   ]),
 
 c.dom.write("For loop on object items"),
-  expr.forOf(input, options={"var": 'y'}).fncs([
-    c.dom.write(std.var("y"))
+  pk.js_expr.forOf(input, options={"var": 'y'}).fncs([
+    c.dom.write(pk.js_std.var("y"))
   ]),
 ])
-
-page.ui.layouts.hr()
-page.ui.titles.subtitle("Report powered by")
-page.ui.rich.powered()
 
 
 if __name__ == "__main__":

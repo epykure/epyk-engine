@@ -1,7 +1,7 @@
 
 from epyk.core.Page import Report
 
-from epyk.tests import data_urls
+from epyk.mocks import urls as data_urls
 
 
 page = Report()

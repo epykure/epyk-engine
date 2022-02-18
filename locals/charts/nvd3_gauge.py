@@ -1,10 +1,9 @@
 
 import epyk as pk
-import __init__
+
 
 page = pk.Page()
 page.headers.dev()
-__init__.add_banner(page, __file__)
 
 c = page.ui.charts.nvd3.gauge(42)
 
@@ -21,5 +20,4 @@ dataPoints3 = [
 page.ui.button("reset").click([
   c.build(90),
 ])
-__init__.add_powered(page)
 

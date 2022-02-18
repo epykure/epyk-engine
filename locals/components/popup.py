@@ -1,9 +1,5 @@
-
+#error
 from epyk.core.Page import Report
-
-# Using data and JavaScript shortcuts
-from epyk.core.js import std
-from epyk.core.data import events
 
 
 # Create a basic report object

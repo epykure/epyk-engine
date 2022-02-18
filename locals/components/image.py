@@ -37,7 +37,7 @@ page.ui.images.badge("This is a badge", background_color="red", color="white")
 page.ui.layouts.new_line()
 page.ui.images.badge(12, icon="far fa-bell", options={"badge_position": 'left'})
 
-# Add a carrousel of images
+# Add a carousel of images
 car = page.ui.images.carousel(["epykIcon.PNG", "epyklogo.ico", "epyklogo_whole_big.png"], path=config.IMG_PATH, height=(200, 'px'))
 car.click([page.js.console.log('data', skip_data_convert=True)])
 

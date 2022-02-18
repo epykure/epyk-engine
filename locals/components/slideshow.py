@@ -8,7 +8,7 @@ page.headers.dev()
 
 ss = page.ui.slideshow([page.ui.text("Great results %s" % i) for i in range(20)])
 
-ss.addIndexChanged([
+ss.add_index_changed([
   page.js.console.log("ok"),
   page.js.console.log(ss.dom.info.indexCached),
   page.js.console.log(ss.dom.info.index),

@@ -1,14 +1,13 @@
 
 
 from epyk.core.Page import Report
-from epyk.core.data import datamap, events
 
 
 # Create a basic report object
 page = Report()
 page.headers.dev()
 
-input = page.ui.input(htmlCode="test")
+input = page.ui.input(html_code="test")
 
 message = page.ui.texts.note("Some text...", "Success", width=(250, 'px'))
 message.style.css.position = 'fixed'

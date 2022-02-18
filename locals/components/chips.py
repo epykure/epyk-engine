@@ -1,8 +1,8 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 # Console component
@@ -15,17 +15,18 @@ ch.enter([
 
 ])
 
-ch.keyup.shift_with('L',[
+# Print Ok if shit+L is pressed in the input area of the chips component.
+ch.keyup.shift_with('L', [
   page.js.alert("Ok")
 ])
 
-page.ui.button('Click').click([
+bt1 = page.ui.button('Click').click([
   ch.dom.add(ch.dom.input),
   c.dom.write(ch.dom.content)
 ])
 
 #
-page.ui.button('Add Fixed').click([
+bt2 = page.ui.button('Add Fixed').click([
   ch.dom.add(ch.dom.input, category="other", fixed=True),
   c.dom.write(ch.dom.content, stringify=True),
   c.dom.write(ch.dom.values('group')),
@@ -35,10 +36,8 @@ page.ui.button('Add Fixed').click([
 #
 icons = page.ui.icons.bar(['fas fa-times', 'fas fa-anchor'])
 icons[0].click([
-  page.js.alert("pl")
+  page.js.alert("test")
 ])
-c.move()
 
-# print( page.imports().show(all=True))
 
 

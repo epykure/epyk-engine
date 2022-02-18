@@ -1,14 +1,12 @@
 
 import epyk as pk
-import __init__
 
 from epyk.core.js.libs import apexchart
 
 # Test module to get test data
-from epyk.tests import data_urls
+from epyk.mocks import urls as data_urls
 
 page = pk.Page()
-__init__.add_banner(page, __file__)
 
 state = "Texas"
 county = "Harris"
@@ -51,5 +49,3 @@ chart_county = page.ui.charts.apex.hbar(state_data, ["cases"], 'county', height=
 chart_county.options.dataLabels.enabled = False
 
 page.ui.row([[chart_texas, chart_harris], chart_county], position="top")
-
-__init__.add_powered(page)

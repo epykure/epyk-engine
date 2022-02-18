@@ -1,15 +1,11 @@
 
-from epyk.core.Page import Report
-from epyk.core.js import expr
-from epyk.core.css.themes import ThemeBlue
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
-page.theme = ThemeBlue.BlueGrey()
-page.body.add_template(defined_style="doc")
-
+page.theme = pk.themes.ThemeBlue.BlueGrey()
 
 page.ui.title("JavaScript If statement")
 
@@ -24,7 +20,7 @@ input = page.ui.input(placeholder="Put a number")
 
 # Just generate a simple if statement on the value of the input
 button = page.ui.button("Check").click([
-  expr
+  pk.js_expr
     .if_(input.dom.content.number > 10, [page.js.alert("Yes it is!")])
     .elif_(input.dom.content.number > 5, [page.js.alert("Not really but close")])
     .else_([page.js.alert("No")
@@ -34,12 +30,4 @@ button.style.css.background = "#323330"
 button.style.css.color = "#f0db4f"
 button.style.css.border_color = "#323330"
 
-page.ui.layouts.hr()
-page.ui.titles.subtitle("Report powered by")
-page.ui.rich.powered()
-
-
-if __name__ == "__main__":
-    # If the script is run directly for Python.
-    page.outs.html_file()
 

@@ -1,19 +1,23 @@
 
-from epyk.core.Page import Report
-from epyk.core.css.themes import ThemeBlue
+import epyk as pk
+
+NAME = "Classes"
 
 
 # Create a basic report object
-page = Report()
-page.headers.dev()
-page.theme = ThemeBlue.BlueGrey()
-page.body.add_template(defined_style="doc")
+page = pk.Page()
 
+page.ui.titles.title(NAME)
+h = page.ui.texts.highlights('''
+This illustrates how to change component styles using CSS Classes.
+The page will show how to:
+- Display the default CSS classes for a common container (a HTML tag) with ``style.classList``
+- A a specific predefined class using ``.style.add_classes.text.colored()``
+- Create of a bespoke CSS class from Python.
+''', icon="fab fa-css3-alt", type="info", color="white", options={"close": False, "markdown": True})
+h.style.css.background = "#4C6EF5"
 
-title = page.ui.titles.title("CSS Classes")
-page.ui.texts.highlights(
-  "The below will show the default CSS classes for a common container (a HTML tag)",
-  icon="fas fa-search-plus", type="info", options={"close": False})
+page.ui.layouts.hr()
 
 div = page.ui.div("This is a text in a div container")
 # Classlist like feature to access all the classes loaded for a given object
@@ -22,11 +26,6 @@ for label, sections in div.style.classList.items():
   page.ui.titles.subtitle("CSS Class Category: %s" % label)
   for v in sections:
     page.ui.print(v)
-
-
-page.ui.texts.highlights(
-  "A specific class will be added using *.style.add_classes.text.colored()*",
-  icon="fas fa-search-plus", type="info", options={"close": False})
 
 # All the classes in the framework are located in the catalog in the style property using add_classes
 div.style.add_classes.text.colored()
@@ -41,15 +40,9 @@ for label, sections in div.style.classList.items():
 from epyk.core.css.styles.classes import CssStyle
 
 
-page.ui.texts.highlights(
-  "Creation of a bespoke CSS class from Python",
-  icon="fas fa-search-plus", type="info", options={"close": False})
-
-
 class CssHoverColor(CssStyle.Style):
   _attrs = {'color': 'blue', 'cursor': 'pointer'}
   _hover = {'color': 'orange'}
-
 
 div1 = page.ui.div("This is a text")
 # Attach the class to the component

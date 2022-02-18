@@ -1,15 +1,14 @@
 
-from epyk.core.Page import Report
-
+import epyk as pk
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 
 button = page.ui.button("Test")
 
-d = page.ui.drawer()
+d = page.ui.drawers.right()
 d.add_panel(page.ui.button("Test1"), "ok1")
 d.add_panel(page.ui.button("Test2"), "ok2")
 d.add_panel(page.ui.button("Test3"), "ok3")
@@ -32,10 +31,15 @@ d.drawers[2].click([
   d.dom.hide(),
   d.panels[2].dom.css({"display": 'block'}).r])
 
-
-d1 = page.ui.drawer()
+d1 = page.ui.drawer(
+  helper="This is a drawer example")
 d1.add_panel(page.ui.button("Test"), "ok")
 d1.drawers[0].click([d1.panels[0].dom.css({"display": 'block'})])
+
+d2 = page.ui.drawers.no_handle(
+  page.ui.button("No Handle"),
+  helper="This is a drawer example"
+)
 
 page.ui.row([d, d1])
 

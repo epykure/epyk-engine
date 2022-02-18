@@ -1,5 +1,6 @@
 
-from epyk.core.Page import Report
+import epyk as pk
+
 from epyk.core.html import Html
 
 
@@ -26,7 +27,7 @@ class MyBody(Html.Body):
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 page.body = MyBody

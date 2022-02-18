@@ -1,4 +1,4 @@
-
+# error
 from epyk.core.Page import Report
 
 
@@ -7,4 +7,4 @@ page = Report()
 page.headers.dev()
 
 
-container = page.ui.network.chat(htmlCode='chat_service')
+container = page.ui.network.chat(html_code='chat_service')

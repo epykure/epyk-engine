@@ -1,14 +1,9 @@
 
-
 import epyk as pk
-import __init__
-
 
 
 page = pk.Page()
 page.headers.dev()
-__init__.add_banner(page, __file__)
-
 
 data = [
     {"id": 0, "group": 0, "content": 'item 0', "start": "2020-06-29", 'type': 'point'},
@@ -53,4 +48,3 @@ page.ui.button("click").click([
   timeline2.js.setCustomTimeMarker("This is a test", 'ok')
   #timeline2.js.removeCustomTime('test2')
 ])
-__init__.add_powered(page)

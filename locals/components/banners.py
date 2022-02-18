@@ -1,10 +1,13 @@
 
 from epyk.core.Page import Report
+from epyk.core.css.themes import ThemeBlue
 
 
 # Create a basic report object
 page = Report()
 page.headers.dev()
+page.theme = ThemeBlue.BlueGrey()
+page.body.add_template(defined_style="doc")
 
 # Add a banner on top of the page
 top = page.ui.banners.top("text")
@@ -31,12 +34,19 @@ b.click([
 ])
 
 # Add a banner on the top right conner
-conrner = page.ui.banners.corner("top", 'red', position='top')
+corner = page.ui.banners.corner("top", 'red', position='top')
 # Add interactivity on the banner style
-conrner.style.hover({"background": "white", 'color': 'red'})
+corner.style.hover({"background": "white", 'color': 'red'})
 
 # Add event when mouse is on the component
-conrner.hover([
+corner.hover([
   # display the banner
   b.dom.show()
+])
+
+# Button to change the value of a banner
+button = page.ui.button("Change")
+button.style.css.margin_top = 150
+button.click([
+  corner.build("New test")
 ])

@@ -3,8 +3,8 @@ import epyk as pk
 
 
 # Test module to get test data
-from epyk.tests import data_urls
-from epyk.tests import mocks
+from epyk.mocks import urls as data_urls
+from epyk.mocks import randoms
 
 
 # Create a basic report object
@@ -13,7 +13,7 @@ page.headers.dev() # Change the Epyk logo
 page.body.set_background()
 
 # Input data
-data = mocks.getSeries(5, 30)
+data = randoms.getSeries(5, 30)
 data_rest = page.py.requests.csv(data_urls.PLOTLY_APPLE_PRICES)
 
 ts = page.ui.charts.chartJs.timeseries(data_rest, y_columns=['AAPL.Open'], x_axis="Date")

@@ -1,13 +1,12 @@
 
-from epyk.core.Page import Report
-from epyk.core.css.themes import ThemeBlue
+import epyk as pk
+
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
-page.theme = ThemeBlue.BlueGrey()
+page.theme = pk.themes.ThemeBlue.BlueGrey()
 page.body.add_template(defined_style="doc")
-
 
 page.ui.title("Custom / External JavaScript")
 
@@ -55,9 +54,6 @@ button.style.css.background = "#323330"
 button.style.css.color = "#f0db4f"
 button.style.css.border_color = "#323330"
 
-page.ui.layouts.hr()
-page.ui.titles.subtitle("Report powered by")
-page.ui.rich.powered()
 
 if __name__ == "__main__":
     # If the script is run directly for Python.

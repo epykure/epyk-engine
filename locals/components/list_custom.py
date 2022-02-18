@@ -11,8 +11,10 @@ records = []
 for i in range(6):
   records.append({'text': 'test %s' % i, 'color': 'red', 'icon': 'fas fa-bolt'})
 
-# Create a stepper
+# Create a bespoke list.
 lt = page.ui.lists.items(records)
+
+# This function will allow the definition of new items for the list
 lt.add_type("bespoke", '''
 var item = document.createElement("DIV"); 
 

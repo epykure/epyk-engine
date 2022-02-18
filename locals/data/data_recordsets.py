@@ -1,19 +1,20 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
-from epyk.tests import mocks
+#
+from epyk.mocks import randoms
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
-
 # Console component
-c = page.ui.rich.console("* This is a log section for all the events in the different buttons *", options={"timestamp": True})
+c = page.ui.rich.console(
+  "* This is a log section for all the events in the different buttons *", options={"timestamp": True})
 
 #
-jsData = page.data.js.record('data_test', mocks.languages)
+jsData = page.data.js.record('data_test', randoms.languages)
 filter = jsData.filterGroup("test")
 
 

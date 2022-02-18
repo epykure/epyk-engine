@@ -1,9 +1,8 @@
 
 import epyk as pk
-import __init__
+
 
 page = pk.Page()
-__init__.add_banner(page, __file__)
 
 github = page.ui.icon("fab fa-github")
 link = page.ui.link("Source code available here", "https://github.com/epykure/epyk-templates")
@@ -27,4 +26,3 @@ languages = [
 b = page.ui.charts.roughviz.bar(languages, y_columns=["rating", 'change'], x_axis='name', width=300)
 p = page.ui.charts.roughviz.pie(languages, y_columns=["rating"], x_axis='name', width=300)
 
-__init__.add_powered(page)

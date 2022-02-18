@@ -3,14 +3,14 @@ import epyk as pk
 
 
 # Test module to get test data
-from epyk.tests import mocks
+from epyk.mocks import randoms
 
 
 page = pk.Page()
 page.headers.dev()
 
 
-js_data = page.data.js.record(data=mocks.languages)
+js_data = page.data.js.record(data=randoms.languages)
 filter1 = js_data.filterGroup("filter1")
 
 select = page.ui.select([
@@ -18,9 +18,9 @@ select = page.ui.select([
   {"value": 'type', 'name': 'code'},
 ])
 
-c = page.ui.charts.chartJs.bar(mocks.languages, y_columns=["rating", 'change'], x_axis='name')
+c = page.ui.charts.chartJs.bar(randoms.languages, y_columns=["rating", 'change'], x_axis='name')
 
-checks = page.ui.lists.checks(pk.inputs.check.from_records(mocks.languages, column="name"), options={"checked": True})
+checks = page.ui.lists.checks(pk.inputs.check.from_records(randoms.languages, column="name"), options={"checked": True})
 
 select.change([
   c.build(filter1.includes('name', checks.dom.content).group().sumBy(['rating', 'change'], select.dom.content, 'name'))

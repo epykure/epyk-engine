@@ -1,9 +1,9 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 #page.theme = ThemeDark.Grey()
@@ -15,7 +15,7 @@ page.ui.navigation.pin("anchor", tooltip="test", bottom=20)
 
 
 mb = page.ui.menus.button("Value", page.ui.list(["value 1", "value 2"]))
-mb.item.click([page.js.alert(mb.item.dom.content)])
+mb.items[0].click([page.js.alert(mb.items[0].dom.content)])
 
 page.ui.images.badge(12, icon="far fa-bell", options={"badge_position": 'right'})
 

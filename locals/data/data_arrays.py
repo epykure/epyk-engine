@@ -1,14 +1,19 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
-page.headers.dev()
+page = pk.Page()
+
+h = page.ui.texts.highlights('''
+This illustrates how to add bespoke JavaScript event to components.
+All standard events are mapped and available.
+''', icon="fab fa-js", type="info", options={"close": False})
+h.style.css.background = "#f0db4f"
 
 # Console component
-c = page.ui.rich.console("* This is a log section for all the events in the different buttons *", options={"timestamp": True})
-
+c = page.ui.rich.console(
+  "* This is a log section for all the events in the different buttons *", options={"timestamp": True})
 
 array = [1, 2, 3, 4, 5, 6]
 
@@ -17,7 +22,7 @@ page.body.onReady([
   c.dom.write(page.js.objects.list([1, 2, 3, 4, 5, 6]), stringify=True),
 
   # Create a non attached List and attached it to the report object before using the without feature
-  c.dom.write(page.js.objects.list(array, report=page).without([3, 4]), stringify=True),
+  c.dom.write(page.js.objects.list(array, page=page).without([3, 4]), stringify=True),
 
   # Transform a report object list and use underscore features
   # This will require a variable name as it will be stored on the javascript side

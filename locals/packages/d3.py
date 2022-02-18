@@ -1,9 +1,10 @@
 
-from epyk.core.Page import Report
-from epyk.tests import data_urls
+import epyk as pk
+
+from epyk.mocks import urls as data_urls
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 csv = page.js.d3.csv(data_urls.PLOTLY_APPLE_PRICES)

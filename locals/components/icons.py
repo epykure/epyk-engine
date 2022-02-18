@@ -1,7 +1,7 @@
 
 from epyk.core.Page import Report
 
-from epyk.tests import data_urls
+from epyk.mocks import urls as data_urls
 
 
 page = Report()
@@ -20,7 +20,7 @@ env = page.ui.icons.awesome(page.ui.icons.get.ICON_ENVELOPE, text=2)
 #env.span.style.addCls("fa-layers-counter")
 
 edit = page.ui.icons.edit()
-edit.on('click', page.js.console.log('test'))
+edit.click([page.js.console.log('test')])
 
 page.ui.icons.clock().css({"color": 'blue'})
 #page.ui.icons.edit().color("red")

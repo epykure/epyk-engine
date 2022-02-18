@@ -1,5 +1,6 @@
 
 from epyk.core.Page import Report
+from epyk.core.data import components
 
 from epyk.core.js.packages import JsFontAwesome
 
@@ -8,6 +9,11 @@ from epyk.core.js.packages import JsFontAwesome
 # Create a basic report object
 page = Report()
 page.headers.dev()
+
+page.ui.components_skin = {
+  "buttons.absolute": {"clear": {"css": True, "cls": True}, "css": {"color": "red"}, 'cls': ["cssbuttonbasic"]},
+  "buttons.check": {"css": {"color": "green"}},
+}
 
 page.ui.buttons.absolute("Click Me")
 # page.ui.lists.list(["A", "B"])
@@ -385,7 +391,7 @@ simple_table = page.ui.tables.grid(rec, cols=["col_%s" % i for i in range(int(co
 page.ui.icons.awesome(icon="fas fa-align-center", text="This is a text")
 # page.ui.layouts.new_line(1)
 page.ui.buttons.check(label="test")
-page.ui.buttons.radio(["A", "B"])
+page.ui.buttons.radio(components.radio.from_list(["A", "B"]))
 page.ui.buttons.toggle({'on': "true", 'off': 'false'})
 page.ui.buttons.button('Confirm')
 page.ui.buttons.important('Important')

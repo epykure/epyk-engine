@@ -1,12 +1,10 @@
 
 import epyk as pk
-import __init__
 
 from epyk.core.data import nvd3
 
 page = pk.Page()
 page.headers.dev()
-__init__.add_banner(page, __file__)
 
 dataPoints = [
   {'x': "Series A", 'y': 10, 'y1': 10},
@@ -43,5 +41,4 @@ dataPoints3 = [
 page.ui.button("reset").click([
   c.build(nvd3.xy(dataPoints3, ["y"], "x")),
 ])
-__init__.add_powered(page)
 

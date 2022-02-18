@@ -2,7 +2,7 @@
 Module in charge of the testing of the buttons
 """
 
-from epyk.core.Page import Report
+import epyk as pk
 
 from epyk.core.css import Defaults as css_defaults
 from epyk.core.html import Defaults as html_defaults
@@ -13,7 +13,7 @@ css_defaults.Font.family = "cursive"
 html_defaults.SERVER_PATH = ""
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 
 # This line will never be sent to the Javascript as not in any container or dedicated Js function
 # page.js.alert("Display")
@@ -82,14 +82,14 @@ span.mouse([
 
 label = page.ui.texts.label("label")
 
-pre = page.ui.texts.preformat("Super").no_selectable()
+pre = page.ui.texts.preformat("Super").selectable(False)
 
 #page.ui.media.youtube("https://www.youtube.com/embed/dfiHMtih5Ac")
 data = [
   {"test": 'A', 'value': 10},
 ]
 
-label = page.ui.texts.label("test label").css({"display": 'block'}, reset=True).no_selectable()
+label = page.ui.texts.label("test label").css({"display": 'block'}, reset=True).selectable(False)
 page.ui.layouts.new_line()
 text = page.ui.text("this is a **test**", options={'maxlength': 2})
 
@@ -99,10 +99,10 @@ fieldset.add_title("title")
 
 highlights = page.ui.texts.highlights("Test content", title="Test", icon="fab fa-angellist")
 
-paragraph = page.ui.texts.paragraph([
+paragraph = page.ui.texts.paragraph("\n".join([
   "This is a paragraph",
   "This is a second line"
-])
+]))
 
 input = page.ui.inputs.input("test input")
 input.autocomplete(["AAAAA", "AAABBB"])
@@ -143,8 +143,7 @@ from datetime import datetime
 
 timestamp_s = page.py.dates.from_timestamp(1573074335010, 0)
 
-from epyk.tests.add_ons import EntAddOn
-
-html_defaults.ENTITIES_ADD_ON = EntAddOn
+#from epyk.mocks.add_ons import EntAddOn
+#html_defaults.ENTITIES_ADD_ON = EntAddOn
 
 

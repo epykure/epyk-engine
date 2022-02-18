@@ -1,17 +1,20 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 from epyk.core.css import Colors
-from epyk.core.css.themes import ThemeBlue
 
+NAME = "Colors"
 
 # Create a basic report object
-page = Report()
-page.headers.dev()
-page.theme = ThemeBlue.BlueGrey()
-page.body.add_template(defined_style="doc")
+page = pk.Page()
+
+page.ui.title(NAME)
+h = page.ui.texts.highlights('''
+Display the colors definition for the default theme.
+''', icon="fab fa-css3-alt", type="info", color="white", options={"close": False})
+h.style.css.background = "#4C6EF5"
+page.ui.layouts.hr()
 
 # Add HTML title
-page.ui.title("Colors", 2)
 page.ui.title("Color component", 3)
 
 # Add a HTML color component
@@ -46,12 +49,9 @@ table.from_array([page.ui.images.color(c, color="black") for c in page.theme.gre
 table.line("charts colors")
 table.from_array([page.ui.images.color(c, color="black") for c in page.theme.charts], 4)
 
-# Get data from another defined theme
-from epyk.core.css.themes import ThemeBlue
-
 page.ui.title("Blue Theme", 4)
 
-other_theme = ThemeBlue.Blue()
+other_theme = pk.themes.ThemeBlue.Blue()
 table = page.ui.layouts.table(options={"header": False})
 table.line("base colors", dim=4)
 table.from_array([page.ui.images.color(c, color="black") for c in other_theme.colors], 4)

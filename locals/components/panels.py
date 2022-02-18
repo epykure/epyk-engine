@@ -28,5 +28,7 @@ page.ui.panels.sliding([
 ], title="Sliding Panel")
 
 
-page.ui.panels.split(left=page.ui.col([page.ui.text("Left")]), right=page.ui.col([page.ui.text("Right")]))
+split_panel = page.ui.panels.split()
+split_panel.left(page.ui.col([page.ui.text("Left")]))
+split_panel.right(page.ui.col([page.ui.text("Right")]))
 

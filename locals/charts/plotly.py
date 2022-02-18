@@ -3,8 +3,8 @@ import epyk as pk
 
 
 # Test module to get test data
-from epyk.tests import data_urls
-from epyk.tests import mocks
+from epyk.mocks import urls as data_urls
+from epyk.mocks import randoms
 
 
 # Create a basic report object
@@ -13,7 +13,7 @@ page.headers.dev()
 
 page.body.set_background()
 
-data_series = mocks.getSeries(5, 30)
+data_series = randoms.getSeries(5, 30)
 
 z1 = [[
     [8.83,8.89,8.81,8.87,8.9,8.87],
@@ -110,15 +110,19 @@ l = page.ui.charts.plotly.line(data, y_columns=[1, 2, 3, 4], x_axis='x')
 su = page.ui.charts.plotly.ribbon(data, y_columns=[1, 4], x_axis='x', z_axis='z')
 sur = page.ui.charts.plotly.surface(data, y_columns=[1], x_axis='x', z_axis=2)
 b = page.ui.charts.plotly.bar(data, y_columns=[1, 2], x_axis='x')
-b.add_trace({"x": [1, 3 , 4, 5], 'y': [12, 10, 11, 7]}, type="scatter")
+b.add_trace({"x": [1, 3, 4, 5], 'y': [12, 10, 11, 7]}, type="scatter")
 
-hist = page.ui.charts.plotly.histogram(data, x_columns=['y', 'z'])
+series = randoms.getSeries(4, 100)
+
+
+page.ui.title("Histogram")
+hist = page.ui.charts.plotly.histogram(series, y_columns=[1, 2, 3])
 h = page.ui.charts.plotly.hbar(data, y_columns=[3, 4], x_axis='x')
 s = page.ui.charts.plotly.scatter(data, y_columns=[1, 2], x_axis='x')
 a = page.ui.charts.plotly.area(data, y_columns=[1, 2], x_axis='x')
 
 bu = page.ui.charts.plotly.bubble(data, y_columns=[1, 2], x_axis='x')
-bu.layout.title = "Test"
+bu.layout.title.text = "Test"
 bu.layout.showlegend = True
 
 p1 = page.ui.charts.plotly.pie(data, y_columns=[2], x_axis='g')
@@ -132,7 +136,7 @@ s2.traces(1).axis_index(3)
 s2.traces(2).axis_index(2)
 s2.traces(3).axis_index(4)
 s2.layout.sub_plot(2, 2)
-s2.layout.title = "Test Subplots"
+s2.layout.title.text = "Test Subplots"
 
 #
 s3 = page.ui.charts.plotly.scatter(data, y_columns=[1, 2], x_axis='x')
@@ -140,7 +144,7 @@ s3.traces(1).axis_index(2)
 s3.layout.xaxis.domain = [0, 0.7]
 s3.layout.xaxis2.domain = [0.8, 1]
 s3.layout.yaxis2.anchor = 'x2'
-s3.layout.title = "Test Subplots 2"
+s3.layout.title.text = "Test Subplots 2"
 
 #
 l1 = page.ui.charts.plotly.line(data, y_columns=[2, 3, 4], x_axis='x')
@@ -149,7 +153,7 @@ l1.traces(1).type = 'bar'
 l1.traces(2).axis_index(3)
 l1.layout.inset_trace([0.8, 1], 2)
 l1.layout.inset_trace([0.8, 1], 3, y_domain=[0.1, 0.3])
-l1.layout.title = "Inset"
+l1.layout.title.text = "Inset"
 
 # me1 = page.ui.charts.plotly.mesh3d(data, intensity="x", x=1, y=2, z=3)
 # me1.layout.yaxis.tickfont.color = "#1f77b4"

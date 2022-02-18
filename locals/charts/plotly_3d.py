@@ -3,7 +3,7 @@ import epyk as pk
 
 
 # Test module to get test data
-from epyk.tests import data_urls
+from epyk.mocks import urls as data_urls
 
 
 page = pk.Page()
@@ -47,7 +47,7 @@ dataPoints3 = [
 
 
 page.ui.button("reset 2").click([
-  c2.build(page.data.plotly.surface(data_rest, y_columns=["y1"], x_axis="x1", z_axis="z1") ),
+  c2.build(page.data.plotly.surface(data_rest, y_columns=["y1"], x_axis="x1", z_axis="z1")),
   #c.js.render(),
 ])
 

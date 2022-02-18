@@ -45,20 +45,17 @@ data2 = [
 #
 tree2 = page.ui.trees.tree(data2)
 
-#
-#tree4 = page.ui.lists.dropdown(data2, text="Button", height=(50, "px"))
+tree5 = page.ui.buttons.menu(["A", "B", "C"])
 
-#tree5 = page.ui.buttons.menu(["A", "B", "C"])
-
-# tree5[0].on('click', [
-#   page.js.alert("Ok"),
-#   tree5[1].js.set_url("https://stackoverflow.com/questions/5220852/anyway-to-change-href-of-link-with-no-id-and-no-jquery")
-# ])
+tree5[0].on('click', [
+  page.js.alert("Ok"),
+  tree5[1].js.set_url("https://stackoverflow.com/questions/5220852/anyway-to-change-href-of-link-with-no-id-and-no-jquery")
+])
 
 #
-#page.ui.button("click").click([
-  #c.write(tree5[1].js.set_text("Test"))
-#])
+page.ui.buttons.colored("click", align="center").click([
+  tree5[1].js.set_text("Test")
+])
 
-#c.move()
+c.move()
 

@@ -1,5 +1,4 @@
 
-
 from epyk.core.Page import Report
 
 
@@ -7,8 +6,10 @@ from epyk.core.Page import Report
 page = Report()
 page.headers.dev()
 
-input = page.ui.input(htmlCode="test")
+# Add the input text
+input = page.ui.input(html_code="test")
 
+# Create the text to be displayed as a popup message temporarily
 message = page.ui.texts.note("Some text...", "Success")
 message.style.css.display = False
 page.ui.button("Click").click([

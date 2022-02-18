@@ -1,14 +1,10 @@
 
-from epyk.core.Page import Report
-from epyk.core.js import std
-from epyk.core.css.themes import ThemeBlue
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
-page.headers.dev()
-page.theme = ThemeBlue.BlueGrey()
-page.body.add_template(defined_style="doc")
+page = pk.Page()
+page.theme = pk.themes.ThemeBlue.BlueGrey()
 
 page.ui.components_skin = {
   "title": {"css": {"color": "#A89A37"}},
@@ -31,7 +27,7 @@ page.ui.title("Events on the page", level=3)
 page.ui.text("Press enter to display hello World")
 
 # Add key up event to the page itself
-page.js.keyup.enter(std.alert('Hello World'), profile=True)
+page.js.keyup.enter(pk.js_std.alert('Hello World'), profile=True)
 
 # Add a title to the report
 page.ui.title("Events on a component", level=3)
@@ -42,10 +38,6 @@ button.click([
     page.js.console.log("JavaScript triggered after 2 seconds")
   ], 2000, profile={"name": "timeOut"})
 ], profile={"name": "Click"})
-
-page.ui.layouts.hr()
-page.ui.titles.subtitle("Report powered by")
-page.ui.rich.powered()
 
 
 if __name__ == "__main__":

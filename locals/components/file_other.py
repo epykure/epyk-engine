@@ -1,18 +1,18 @@
 
-from epyk.core.Page import Report
-
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 
-wf = page.ui.workflow([{"status": 'red', 'value': 'ok', 'label': 'ok'}, {"status": 'green', 'value': 'ok 2', 'label': 'ok'}])
+
+wf = page.ui.stepper([
+  {"status": 'red', 'value': 'ok', 'label': 'ok'}, {"status": 'green', 'value': 'ok 2', 'label': 'ok'}])
 
 page.body.set_background()
-
 b = page.ui.button("Click")
 
-page.ui.context_menu([])
+#page.ui.context_menu([])
 # def test(a):
 #   return {}
 #

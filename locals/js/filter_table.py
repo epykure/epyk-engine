@@ -1,16 +1,13 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 from epyk.core.data.Data import DataJs
 from epyk.core.data import components
-from epyk.core.css.themes import ThemeBlue
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
-page.theme = ThemeBlue.BlueGrey()
-page.body.add_template(defined_style="doc")
-
+page.theme = pk.themes.ThemeBlue.BlueGrey()
 
 page.ui.title("JavaScript - Data Filtering")
 
@@ -42,10 +39,6 @@ filter_data = DataJs(page).record(data=languages)
 select.change([
   table.build(filter_data.filterGroup("test").equal(filter_column, select.dom.content))
 ])
-
-page.ui.layouts.hr()
-page.ui.titles.subtitle("Report powered by")
-page.ui.rich.powered()
 
 
 if __name__ == "__main__":

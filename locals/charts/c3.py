@@ -1,20 +1,18 @@
 
 import epyk as pk
-import __init__
 
 
 # Test module to get test data
-from epyk.tests import data_urls
-from epyk.tests import mocks
+from epyk.mocks import urls as data_urls
+from epyk.mocks import randoms
 
 
 # Create a basic report object
 page = pk.Page()
 page.headers.dev() # Change the Epyk logo
 page.body.set_background()
-__init__.add_banner(page, __file__)
 
-data = mocks.getSeries(5, 40)
+data = randoms.getSeries(5, 40)
 
 data_rest = page.py.requests.csv(data_urls.PLOTLY_APPLE_PRICES)
 
@@ -60,5 +58,4 @@ box.extend([s, ts, step])
 box.extend([b, h, area, area_step])
 box.style.configs.doc()
 
-__init__.add_powered(page)
 

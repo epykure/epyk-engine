@@ -3,7 +3,7 @@ import epyk as pk
 
 
 # Test module to get test data
-from epyk.tests import mocks
+from epyk.mocks import randoms
 
 
 page = pk.Page()
@@ -11,7 +11,7 @@ page.headers.dev()
 page.body.set_background()
 
 # Create a Javascript Crossfilter object
-data = mocks.getSeries(5, 30)
+data = randoms.getSeries(5, 30)
 crossfilter = page.js.data.crossfilter(data, "test")
 dimension = crossfilter.dimension([('x', int)], 'test_dim')
 group = dimension.group('group').reduceSum(1)
@@ -34,7 +34,7 @@ pie3 = page.ui.charts.dc.bar(height=(150, "px")) # data, y_columns=[1, 2], x_axi
 pie3.crossFilter(dimension, group)
 
 #
-data = mocks.getSeries(5, 30)
+data = randoms.getSeries(5, 30)
 line = page.ui.charts.dc.line(data, y_columns=[1, 2], x_axis='x')
 step = page.ui.charts.dc.step(data, y_columns=[1, 2], x_axis='x')
 bar = page.ui.charts.dc.bar(data, y_columns=[3, 4], x_axis='x')

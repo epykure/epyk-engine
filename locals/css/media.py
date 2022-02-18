@@ -1,10 +1,9 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
-page.headers.dev()
+page = pk.Page()
 
 div = page.ui.div("toto")
 
@@ -18,4 +17,5 @@ nav.add_text("This is a huge text that I don't know what to do with")
 nav + button
 nav + imp
 
-nav.style.css_class.media({nav: {"float": "none", 'width': '100%'}}, 'only', 'screen', {"and": [{'max-width': '600px'}]})
+nav.style.css_class.media(
+  {nav: {"float": "none", 'width': '100%'}}, 'only', 'screen', {"and": [{'max-width': '600px'}]})

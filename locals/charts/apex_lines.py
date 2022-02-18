@@ -1,12 +1,10 @@
 
 import epyk as pk
-import __init__
 
 # Test module to get test data
-from epyk.tests import data_urls
+from epyk.mocks import urls as data_urls
 
 page = pk.Page()
-__init__.add_banner(page, __file__)
 
 state = "California"
 data = page.py.requests.csv(data_urls.COVID_US, store_location=r"C:\tmps") # store_location to save the file locally
@@ -28,4 +26,3 @@ chart_county.options.dataLabels.enabled = False
 chart_texas.zoomable()
 
 page.ui.row([chart_texas, chart_county])
-__init__.add_powered(page)

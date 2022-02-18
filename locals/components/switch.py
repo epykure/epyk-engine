@@ -1,4 +1,4 @@
-
+# error disable
 from epyk.core.Page import Report
 
 
@@ -22,14 +22,14 @@ s2.click([
 )
 # In Sync with S2 changes
 s3 = page.ui.buttons.toggle({'on': "true", 'off': 'false'}, color='red')
-s3.switch_label.style.css.width = 100
+#s3.switch_label.style.css.width = 100
 
 # Label is changing
 s4 = page.ui.buttons.toggle({'on': "true", 'off': 'false'})
 
 # Different CSS Style
 s5 = page.ui.buttons.toggle({'on': "true", 'off': 'false'})
-s5.switch_label.style.css.width = 40
+#s5.switch_label.style.css.width = 40
 
 # Click even
 page.ui.button("click").click([

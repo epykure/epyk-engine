@@ -1,14 +1,11 @@
 
-from epyk.core.Page import Report
-from epyk.core.js import std
-from epyk.core.css.themes import ThemeBlue
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
-page.theme = ThemeBlue.BlueGrey()
-page.body.add_template(defined_style="doc")
+page.theme = pk.themes.ThemeBlue.BlueGrey()
 
 page.ui.title("JavaScript - New Event Name")
 
@@ -20,22 +17,18 @@ h.style.css.background = "#f0db4f"
 div = page.ui.div("Test")
 div.onReady([
   # Create a bespoke type of event
-  div.dom.addEventListener("build", std.alert("Ok"))
+  div.dom.addEventListener("build", pk.js_std.alert("Ok"))
 ])
 
 div2 = page.ui.div("Trigger Event")
 div2.click([
   # Define the event
-  std.createEvent('test_event'),
-  std.initEvent("build", 'test_event', True, True),
+  pk.js_std.createEvent('test_event'),
+  pk.js_std.initEvent("build", 'test_event', True, True),
 
   # Dispatch this event to trigger the component div
-  div2.dom.dispatchEvent(std.getEvent('test_event'))
+  div2.dom.dispatchEvent(pk.js_std.getEvent('test_event'))
 ])
-
-page.ui.layouts.hr()
-page.ui.titles.subtitle("Report powered by")
-page.ui.rich.powered()
 
 
 if __name__ == "__main__":

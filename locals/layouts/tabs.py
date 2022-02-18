@@ -1,9 +1,9 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 #

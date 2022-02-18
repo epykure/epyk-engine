@@ -1,8 +1,9 @@
 
 from epyk.core.Page import Report
+from epyk.core.data import components
+from epyk.mocks import urls as data_urls
 
-from epyk.tests import data_urls
-
+# TODO add Js events and also improve fwk to add click from labels
 
 # Create a basic report object
 page = Report()
@@ -18,22 +19,23 @@ page.body.style.css.padding = "0 20px"
 c = page.ui.rich.console("* This is a log section for all the events in the different buttons *", options={"timestamp": True})
 
 #
-# page.ui.radio(data, column='city')
+radio_data = components.radio.from_records(data, 'city')
+page.ui.radio(radio_data)
 
-
-#
+# Add a group of radio buttons
 c1 = page.ui.fields.radio(True, label="Check 1", group_name="group1")
 c2 = page.ui.fields.radio(True, label="Check 2", group_name="group1")
 
-c3 = page.ui.inputs.radio(True, label="Check")#
+# Add a checked radio button
+c3 = page.ui.inputs.radio(True, label="Check")
 
-#
+# Add a tick HTML component
 c4 = page.ui.icons.tick(False, "Check")
 
-#
+# Add a list with radions buttons
 c5 = page.ui.lists.radios([
-  {"value": True, 'label': 'Python'},
-  {"value": False, 'label': 'Javascript'},
+  {"value": True, 'text': 'Python'},
+  {"value": False, 'text': 'Javascript'},
 ])
 
 c1.click([

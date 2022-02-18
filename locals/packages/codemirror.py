@@ -1,11 +1,13 @@
-from epyk.core.Page import Report
+
+import epyk as pk
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 # Console component
-console = page.ui.rich.console("This is a log section for all the events in the different buttons *", options={"timestamp": True})
+console = page.ui.rich.console(
+  "This is a log section for all the events in the different buttons *", options={"timestamp": True})
 
 css1 = page.ui.codes.css('''
 ''')

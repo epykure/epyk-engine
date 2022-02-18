@@ -1,12 +1,13 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 # Console component
-c = page.ui.rich.console("* This is a log section for all the events in the different buttons *", options={"timestamp": True})
+c = page.ui.rich.console(
+  "* This is a log section for all the events in the different buttons *", options={"timestamp": True})
 
 # Create two default rimepicker with different dates
 first = page.ui.fields.now(label="timestamp", color="red", helper="This is the report timestamp")
@@ -18,7 +19,7 @@ morning.options.interval = 60
 
 # Add event when the timepciker object change
 morning.change([
-  c.dom.write("time", skip_data_convert=True)
+  c.dom.write("'time'", skip_data_convert=True)
 ])
 
 # Add button to retrieve the value of the different timepcickers

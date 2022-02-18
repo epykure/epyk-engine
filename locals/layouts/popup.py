@@ -1,13 +1,12 @@
 
-from epyk.core.Page import Report
-from epyk.core.css.themes import ThemeBlue
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
-page.theme = ThemeBlue.BlueGrey()
+page.theme = pk.themes.ThemeBlue.BlueGrey()
 d = page.ui.fields.today('test')
 i = page.ui.fields.input(placeholder='test2', label='test1')
 i2 = page.ui.fields.input('test3', label='test2')

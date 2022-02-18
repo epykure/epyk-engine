@@ -1,12 +1,14 @@
 
 from epyk.core.Page import Report
+from epyk.core.data import components
 
 
 # Create a basic report object
 page = Report()
 page.headers.dev()
 
-a = page.ui.fields.select(["Apple", 'Orange'], label="test", helper="select fruit", options={"align": 'center'})#
+a = page.ui.fields.select(components.select.from_list(["Apple", 'Orange']), label="test", helper="select fruit",
+                          options={"align": 'center'})#
 a.input.attr["data-live-search"] = "true"
 
 page.ui.fields.date('2020-04-08', label="Date").included_dates(["2020-04-08", "2019-09-06"])

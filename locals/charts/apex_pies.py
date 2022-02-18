@@ -1,14 +1,12 @@
 
 import epyk as pk
-import __init__
 
 
 # Test module to get test data
-from epyk.tests import data_urls
+from epyk.mocks import urls as data_urls
 
 
 page = pk.Page()
-__init__.add_banner(page, __file__)
 # page.verbose = True
 
 data = page.py.requests.csv(data_urls.COVID_US, store_location=r"C:\tmps") # store_location to save the file locally
@@ -34,4 +32,3 @@ chart_cases.options.theme.monochrome.enabled = True
 #chart_cases.options.plotOptions.radialBar.dataLabels.position = "top"
 
 page.ui.row([usa_map, [chart_deaths, chart_cases]])
-__init__.add_powered(page)

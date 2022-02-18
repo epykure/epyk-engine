@@ -1,12 +1,14 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
 #
 from epyk.core.js import Imports
 from epyk.core.html import Html
 
 # Extend the current list of packages to include Google charts as a reference
-Imports.extend("google-chart", [('loader.js',  'charts/')], version=None, cdnjs_url="https://www.gstatic.com", required=None)
+Imports.extend(
+  "google-chart", [('loader.js',  'charts/')], version=None, cdnjs_url="https://www.gstatic.com", required=None)
+
 
 # Create the bespoke HTML component
 class Chart(Html.Html):
@@ -14,8 +16,8 @@ class Chart(Html.Html):
   requirements = ('google-chart', )
   name = "New Google Chart"
 
-  def __init__(self, report, vals, htmlCode=None, width=None, height=None, options=None, profile=None):
-    super(Chart, self).__init__(report, vals, htmlCode=htmlCode, css_attrs={"width": width, "height": height})
+  def __init__(self, report, vals, html_code=None, width=None, height=None, options=None, profile=None):
+    super(Chart, self).__init__(report, vals, html_code=html_code, css_attrs={"width": width, "height": height})
     self._jsStyles = options or {}
 
   @property
@@ -34,18 +36,19 @@ class Chart(Html.Html):
   def __str__(self):
     # Load the Google module
     # This module require some specific loading function
-    self._report._props.setdefault('js', {}).setdefault("builders", []).append("google.charts.load('current', {'packages':['corechart']})")
-    self._report._props.setdefault('js', {}).setdefault("builders", []).append("google.charts.setOnLoadCallback( (function(){return %s}) )" % self.refresh())
+    self.page._props.setdefault('js', {}).setdefault("builders", []).append("google.charts.load('current', {'packages':['corechart']})")
+    self.page._props.setdefault('js', {}).setdefault("builders", []).append("google.charts.setOnLoadCallback( (function(){return %s}) )" % self.refresh())
     # The HTML component
-    return '<div %s></div>' % self.get_attrs(pyClassNames=self.style.get_classes())
+    return '<div %s></div>' % self.get_attrs(css_class_names=self.style.get_classes())
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 # The input data from https://developers.google.com/chart/interactive/docs/gallery/areachart
-data = [['Year', 'Sales', 'Expenses'], ['2013', 1000, 400], ['2014', 1170, 460], ['2015', 660, 1120], ['2016', 1030, 540]]
+data = [
+  ['Year', 'Sales', 'Expenses'], ['2013', 1000, 400], ['2014', 1170, 460], ['2015', 660, 1120], ['2016', 1030, 540]]
 
 # Create an object on the Javascript side
 page.ui.bespoke(Chart, vals=data)

@@ -1,10 +1,8 @@
 
 import epyk as pk
-import __init__
 
 
 page = pk.Page()
-__init__.add_banner(page, __file__)
 
 but = page.ui.button("Update Options")
 but_title = page.ui.button("Change Title")
@@ -74,5 +72,4 @@ but_series.click([
   chart.js.appendData([{'data': {}}, {"name": "toto2", 'data': [32, 44, 31, 41, 22]}])
 ])
 
-__init__.add_powered(page)
 

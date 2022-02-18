@@ -1,12 +1,13 @@
 
-from epyk.core.Page import Report
+import epyk as pk
 
 
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
 # Console component
-c = page.ui.rich.console("* This is a log section for all the events in the different buttons *", options={"timestamp": True})
+c = page.ui.rich.console(
+  "* This is a log section for all the events in the different buttons *", options={"timestamp": True})
 
 current = page.ui.menus.selections([])
 

@@ -1,21 +1,19 @@
 
 import epyk as pk
-import __init__
 
 
 # Test module to get test data
-from epyk.tests import data_urls
-from epyk.tests import mocks
+from epyk.mocks import urls as data_urls
+from epyk.mocks import randoms
 
 
 # Create a basic report object
 page = pk.Page()
 page.headers.dev() # Change the Epyk logo
-__init__.add_banner(page, __file__)
 page.body.set_background()
 
 # Input data
-data = mocks.getSeries(5, 40)
+data = randoms.getSeries(5, 40)
 data_rest = page.py.requests.csv(data_urls.PLOTLY_APPLE_PRICES)
 
 ts = page.ui.charts.billboard.timeseries(data_rest, y_columns=['AAPL.Open'], x_axis="Date")
@@ -59,5 +57,4 @@ page.ui.grid([
   [s, a, ts],
   [b, h, area_step]
 ])
-__init__.add_powered(page)
 

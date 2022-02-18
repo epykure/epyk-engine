@@ -1,16 +1,11 @@
 
-from epyk.core.Page import Report
-
-from epyk.core.js import expr
-from epyk.core.css.themes import ThemeBlue
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
-page.theme = ThemeBlue.BlueGrey()
-page.body.add_template(defined_style="doc")
-
+page.theme = pk.themes.ThemeBlue.BlueGrey()
 
 page.ui.title("JavaScript Switch statement")
 
@@ -26,7 +21,7 @@ page.ui.titles.subtitle("Selected Number")
 result = page.ui.div("No value selected")
 
 slider.change([
-  expr.switch(slider)
+  pk.js_expr.switch(slider)
     .caseAbove(25, [result.dom.css({"color": "green"}).r])
     .caseRange(10, 24, [result.dom.css({"color": "black"}).r])
     .caseBelow(10, [
@@ -34,10 +29,6 @@ slider.change([
   ], include_value=False),
   result.build(slider.dom.content)
 ])
-
-page.ui.layouts.hr()
-page.ui.titles.subtitle("Report powered by")
-page.ui.rich.powered()
 
 
 if __name__ == "__main__":
