@@ -1,21 +1,15 @@
 
-from epyk.core.Page import Report
-
-from epyk.tests import data_urls
+import epyk as pk
 
 
 # Create a basic report object
-page = Report()
+page = pk.Page()
 page.headers.dev()
 
-data_rest_1 = page.py.requests.csv(data_urls.DC_QUAKES)
+table = page.ui.tables.aggrids.table(rows=["country", "sport", 'gold', 'silver', 'bronze', 'age', 'year', 'date'])
+table.theme("alpine")
 
-table1 = page.ui.tables.aggrids.table(data_rest_1)
-table2 = page.ui.tables.aggrids.table(data_rest_1)
-
-page.ui.row([
-  page.ui.col([
-    page.ui.titles.title("Test"),
-    table1]), table2])
-#table.config.sideBar.toolPanelsColumn()
-# table.config.deltaColumnMode = True
+table.onReady([
+page.js.fetch("https://www.ag-grid.com/example-assets/olympic-winners.json").json().process(table.js.setRowData)
+])
+page.outs.html_file(print_paths=True, run_id=False)
